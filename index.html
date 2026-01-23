@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gentle Hawker</title>
+    <title>EatOutside</title>
     <style>
         body { font-family: sans-serif; margin: 0; padding: 20px; line-height: 1.5; color: #333; }
         h1 { font-size: 1.5rem; text-align: center; }
@@ -42,7 +42,7 @@
     </div>
 
     <div id="detail-screen" class="hidden">
-        <p class="reassurance">You don’t need to avoid this food — these are just gentler ways to eat it.</p>
+        <p class="reassurance">You don't need to avoid this food — these are just lighter ways to eat it.</p>
         <div id="detail-content"></div>
         <button class="back-btn" onclick="showList()">← Back to Menu</button>
     </div>
@@ -51,43 +51,43 @@
         const foods = [
             { 
                 id: 0, name: "Chicken Rice", tip: "Cucumber slices add a refreshing crunch to the meal.", 
-                options: { gentle: "Poached chicken (skinless) + plain rice", moderate: "Poached chicken + flavored rice", heavy: "Roasted chicken + flavored rice" }
+                options: { light: "Poached chicken (skinless) + plain rice", caution: "Poached chicken + flavored rice", avoid: "Roasted chicken + flavored rice" }
             },
             { 
                 id: 1, name: "Fish Soup", tip: "Clear broth is hydrating and easy on the stomach.", 
-                options: { gentle: "Sliced fish in clear broth", moderate: "Fried fish in clear broth", heavy: "Fried fish in creamy broth" }
+                options: { light: "Sliced fish in clear broth", caution: "Fried fish in clear broth", avoid: "Fried fish in creamy broth" }
             },
             { 
                 id: 2, name: "Yong Tau Foo", tip: "Tofu and leafy greens are soft and easy to digest.", 
-                options: { gentle: "Soup base with fresh tofu and greens", moderate: "Dry style with sweet bean sauce", heavy: "Laksa broth or mostly crispy fried items" }
+                options: { light: "Soup base with fresh tofu and greens", caution: "Dry style with sweet bean sauce", avoid: "Laksa broth or mostly crispy fried items" }
             },
             { 
                 id: 3, name: "Ban Mian", tip: "Adding extra spinach makes the broth feel more balanced.", 
-                options: { gentle: "Clear soup with extra vegetables", moderate: "Dry style with minced meat", heavy: "Dry style with extra chili oil and fried ikan bilis" }
+                options: { light: "Clear soup with extra vegetables", caution: "Dry style with minced meat", avoid: "Dry style with extra chili oil and fried ikan bilis" }
             },
             { 
                 id: 4, name: "Nasi Lemak", tip: "The cucumber and egg provide a nice contrast in texture.", 
-                options: { gentle: "Plain rice with ikan bilis, egg, and cucumber", moderate: "Coconut rice with otah and wings", heavy: "Coconut rice with extra sambal and fried sides" }
+                options: { light: "Plain rice with ikan bilis, egg, and cucumber", caution: "Coconut rice with otah and wings", avoid: "Coconut rice with extra sambal and fried sides" }
             },
             { 
                 id: 5, name: "Wanton Mee", tip: "Soup on the side helps keep the noodles soft.", 
-                options: { gentle: "Soup version with steamed wantons", moderate: "Dry version with char siew", heavy: "Dry version with extra sauce and fried wantons" }
+                options: { light: "Soup version with steamed wantons", caution: "Dry version with char siew", avoid: "Dry version with extra sauce and fried wantons" }
             },
             { 
                 id: 6, name: "Carrot Cake", tip: "White carrot cake has a simpler, more savory flavor profile.", 
-                options: { gentle: "White version with more egg, less oil", moderate: "White version standard", heavy: "Black version with sweet dark sauce" }
+                options: { light: "White version with more egg, less oil", caution: "White version standard", avoid: "Black version with sweet dark sauce" }
             },
             { 
                 id: 7, name: "Economical Rice (Cai Fan)", tip: "Steamed options are often easier on the palate.", 
-                options: { gentle: "Two steamed vegetable sides + 1 steamed protein", moderate: "One stir-fry + 1 fried protein", heavy: "Multiple fried sides or heavy gravy over rice" }
+                options: { light: "Two steamed vegetable sides + 1 steamed protein", caution: "One stir-fry + 1 fried protein", avoid: "Multiple fried sides or heavy gravy over rice" }
             },
             { 
                 id: 8, name: "Laksa", tip: "Sipping the broth slowly lets you enjoy the spices.", 
-                options: { gentle: "Standard bowl with extra bean sprouts", moderate: "Standard bowl with extra cockles/fishcake", heavy: "Extra coconut gravy or added fried toppings" }
+                options: { light: "Standard bowl with extra bean sprouts", caution: "Standard bowl with extra cockles/fishcake", avoid: "Extra coconut gravy or added fried toppings" }
             },
             { 
                 id: 9, name: "Bak Chor Mee", tip: "Vinegar adds a bright tang that cuts through the richness.", 
-                options: { gentle: "Soup version with minced meat and mushrooms", moderate: "Dry version with balanced sauce", heavy: "Dry version with extra lard and chili oil" }
+                options: { light: "Soup version with minced meat and mushrooms", caution: "Dry version with balanced sauce", avoid: "Dry version with extra lard and chili oil" }
             }
         ];
 
@@ -100,10 +100,10 @@
             const food = foods[id];
             const content = `
                 <h2>${food.name}</h2>
-                <div class="option gentle"><strong>Gentle:</strong> ${food.options.gentle}</div>
-                <div class="option moderate"><strong>Moderate:</strong> ${food.options.moderate}</div>
-                <div class="option heavy"><strong>Heavier:</strong> ${food.options.heavy}</div>
-                <p class="tip">💡 ${food.tip}</p>
+                <div class="option gentle"><strong>Light:</strong> ${food.options.light}</div>
+                <div class="option moderate"><strong>Caution:</strong> ${food.options.caution}</div>
+                <div class="option heavy"><strong>Avoid:</strong> ${food.options.avoid}</div>
+                <p class="tip">Tip: ${food.tip}</p>
             `;
             document.getElementById('detail-content').innerHTML = content;
             document.getElementById('list-screen').classList.add('hidden');
