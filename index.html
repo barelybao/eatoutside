@@ -37,7 +37,7 @@
 <body>
 
     <div id="list-screen">
-        <h1>What are you eating? (吃什么?)</h1>
+        <h1>Eating outside? (吃什么?)</h1>
         <div id="menu-container"></div>
         <footer>
             <a href="about.html" class="info-link">About</a>
@@ -48,14 +48,14 @@
     <div id="detail-screen" class="hidden">
         <p class="reassurance">Choose the option that feels safest for your body today.</p>
         <div id="detail-content"></div>
-        <button class="back-btn" onclick="showList()">← Back to Menu（回菜单）</button>
+        <button class="back-btn" onclick="showList()">← Back to Menu (回菜单)</button>
     </div>
 
     <script>
         const foods = [
             {
                 id: 0, name: "Chicken Rice", tip: "Cucumber slices add a refreshing crunch to the meal.",
-                options: { light: "Poached chicken (skinless) + plain rice", caution: "Poached chicken + flavored rice", avoid: "Roasted chicken + flavored rice" }
+                options: { light: "Poached chicken (skinless) + plain rice", caution: "Poached chicken + flavoured rice", avoid: "Roasted chicken + flavoured rice" }
             },
             {
                 id: 1, name: "Fish Soup", tip: "Clear broth is hydrating and easy on the stomach.",
@@ -116,7 +116,7 @@
                     <img src="./assets/img/ui/avoid.svg" alt="Avoid option" class="option-icon">
                     <span><strong>Avoid:</strong> ${food.options.avoid}</span>
                 </div>
-                <p class="tip">Tip: ${food.tip}</p>
+                <p class="tip">${food.tip}</p>
             `;
             document.getElementById('detail-content').innerHTML = content;
             document.getElementById('list-screen').classList.add('hidden');
