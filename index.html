@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EatOutside</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 20px; line-height: 1.5; color: rgb(17, 25, 37); background-color: rgb(255, 209, 0); }
+        body { font-family: sans-serif; margin: 0; padding: 20px; line-height: 1.6; color: rgb(17, 25, 37); background-color: rgb(255, 209, 0); font-size: 1.5rem; }
+        body.detail-active { background-color: rgb(255, 255, 255); padding-top:0;}
         h1 { font-size: 1.5rem; text-align: center; color: rgb(17, 25, 37); }
         .hidden { display: none; }
+        .detail-image-container { width: 100vw; margin-left: calc(-50vw + 50%); margin-top: -20px; height: 80vh; position: relative; overflow: hidden; margin-bottom: 20px; }
+        .detail-image { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
 
         /* List Screen */
         .dish-btn {
-            display: block; width: 100%; padding: 20px; margin-bottom: 10px;
+            display: flex; align-items: center; width: 100%; padding: 20px 20px 20px 0; margin-bottom: 10px;
             background: rgb(247, 248, 249); border: 2px solid rgb(255, 209, 0); border-radius: 15px;
-            font-size: 1.1rem; text-align: left; cursor: pointer; color: rgb(17, 25, 37); font-weight: bold;
+            font-size: 1.5rem; text-align: left; cursor: pointer; color: rgb(17, 25, 37); font-weight: bold;
+            height: 80px;
+        }
+        .dish-btn img {
+            height: 80px;
+            width: auto;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 13px 0 0 13px;
+            flex-shrink: 0;
+        }
+        .dish-btn-text {
+            flex: 1;
         }
         .dish-btn:hover { background: rgb(255, 251, 230); border-color: rgb(255, 209, 0); }
 
         /* Detail Screen */
         .reassurance { font-size: 0.95rem; margin-bottom: 20px; color: rgb(17, 25, 37); text-align: left; }
-        .option { margin-bottom: 15px; padding: 10px; border-radius: 15px; display: flex; align-items: center; }
+        .option { margin-bottom: 15px; padding: 10px; border-radius: 15px; display: flex; flex-direction: column; }
+        .option-top { display: flex; align-items: center; margin-bottom: 8px; }
         .option-icon { height: 30px; width: auto; margin-right: 8px; flex-shrink: 0; }
+        .option-label { font-weight: bold; flex-shrink: 0; }
         .light { background: #fffbeb; border-left: 5px solid rgb(255, 209, 0); }
         .caution { background: #fffbeb; border-left: 5px solid rgb(255, 209, 0); }
         .avoid { background: #fffbeb; border-left: 5px solid rgb(255, 209, 0); }
@@ -46,7 +63,6 @@
     </div>
 
     <div id="detail-screen" class="hidden">
-        <p class="reassurance">Choose the option that feels safest for your body today.</p>
         <div id="detail-content"></div>
         <button class="back-btn" onclick="showList()">← Back to Menu (回菜单)</button>
     </div>
@@ -55,11 +71,11 @@
         const foods = [
             {
                 id: 0, name: "Chicken Rice", tip: "Cucumber slices add a refreshing crunch to the meal.",
-                options: { light: "Poached chicken (skinless) + plain rice", caution: "Poached chicken + flavoured rice", avoid: "Roasted chicken + flavoured rice" }
+                options: { light: "Boiled chicken (skinless) + plain rice", caution: "Boiled chicken + flavoured rice", avoid: "Roasted chicken + flavoured rice" }
             },
             {
                 id: 1, name: "Fish Soup", tip: "Clear broth is hydrating and easy on the stomach.",
-                options: { light: "Sliced fish in clear broth", caution: "Fried fish in clear broth", avoid: "Fried fish in creamy broth" }
+                options: { light: "Sliced fish in clear broth", caution: "Fried fish in clear broth", avoid: "Fried fish in milk broth" }
             },
             {
                 id: 2, name: "Yong Tau Foo", tip: "Tofu and leafy greens are soft and easy to digest.",
@@ -75,11 +91,11 @@
             },
             {
                 id: 5, name: "Wanton Mee", tip: "Soup on the side helps keep the noodles soft.",
-                options: { light: "Soup version with steamed wantons", caution: "Dry version with char siew", avoid: "Dry version with extra sauce and fried wantons" }
+                options: { light: "Soup version with boiled wantons", caution: "Dry version with char siew", avoid: "Dry version with extra sauce and fried wantons" }
             },
             {
                 id: 6, name: "Carrot Cake", tip: "White carrot cake has a simpler, more savory flavor profile.",
-                options: { light: "White version with more egg, less oil", caution: "White version standard", avoid: "Black version with sweet dark sauce" }
+                options: { light: "White version with more egg, less oil", caution: "White version", avoid: "Black version" }
             },
             {
                 id: 7, name: "Economical Rice (Cai Fan)", tip: "Steamed options are often easier on the palate.",
@@ -87,48 +103,79 @@
             },
             {
                 id: 8, name: "Laksa", tip: "Sipping the broth slowly lets you enjoy the spices.",
-                options: { light: "Standard bowl with extra bean sprouts", caution: "Standard bowl with extra cockles/fishcake", avoid: "Extra coconut gravy or added fried toppings" }
+                options: { light: "Extra bean sprouts", caution: "Extra cockles/fishcake", avoid: "Extra soup or added fried toppings" }
             },
             {
                 id: 9, name: "Bak Chor Mee", tip: "Vinegar adds a bright tang that cuts through the richness.",
-                options: { light: "Soup version with minced meat and mushrooms", caution: "Dry version with balanced sauce", avoid: "Dry version with extra lard and chili oil" }
+                options: { light: "Soup version with minced meat and mushrooms", caution: "Dry version with balanced sauce", avoid: "Dry version with extra lard/chili/sauce" }
             }
         ];
 
         function showList() {
             document.getElementById('list-screen').classList.remove('hidden');
             document.getElementById('detail-screen').classList.add('hidden');
+            document.body.classList.remove('detail-active');
         }
 
         function showDetail(id) {
             const food = foods[id];
             const content = `
-                <h2>${food.name}</h2>
+                <div class="detail-image-container">
+                    <img src="./assets/img/food/${getKebabCase(food.name)}.webp" alt="${food.name}" class="detail-image">
+                </div>
+                <div>
+                    <h2 style="margin-bottom:0">${food.name}</h2>
+                </div>
+                <p class="reassurance">Choose the option that feels safest for your body today.</p>
                 <div class="option light">
-                    <img src="./assets/img/ui/light.svg" alt="Light option" class="option-icon">
-                    <span><strong>Light:</strong> ${food.options.light}</span>
+                    <div class="option-top">
+                        <img src="./assets/img/ui/light.svg" alt="Light option" class="option-icon">
+                        <span class="option-label">Light:</span>
+                    </div>
+                    <div class="option-content">${food.options.light}</div>
                 </div>
                 <div class="option caution">
-                    <img src="./assets/img/ui/caution.svg" alt="Caution option" class="option-icon">
-                    <span><strong>Caution:</strong> ${food.options.caution}</span>
+                    <div class="option-top">
+                        <img src="./assets/img/ui/caution.svg" alt="Caution option" class="option-icon">
+                        <span class="option-label">Caution:</span>
+                    </div>
+                    <div class="option-content">${food.options.caution}</div>
                 </div>
                 <div class="option avoid">
-                    <img src="./assets/img/ui/avoid.svg" alt="Avoid option" class="option-icon">
-                    <span><strong>Avoid:</strong> ${food.options.avoid}</span>
+                    <div class="option-top">
+                        <img src="./assets/img/ui/avoid.svg" alt="Avoid option" class="option-icon">
+                        <span class="option-label">Avoid:</span>
+                    </div>
+                    <div class="option-content">${food.options.avoid}</div>
                 </div>
                 <p class="tip">${food.tip}</p>
             `;
             document.getElementById('detail-content').innerHTML = content;
             document.getElementById('list-screen').classList.add('hidden');
             document.getElementById('detail-screen').classList.remove('hidden');
+            document.body.classList.add('detail-active');
             window.scrollTo(0,0);
+        }
+
+        function getKebabCase(name) {
+            return name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/\([^)]*\)/g, '').trim();
         }
 
         const container = document.getElementById('menu-container');
         foods.forEach(f => {
             const btn = document.createElement('button');
             btn.className = 'dish-btn';
-            btn.innerText = f.name;
+
+            const img = document.createElement('img');
+            img.src = `./assets/img/food/${getKebabCase(f.name)}.webp`;
+            img.alt = f.name;
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'dish-btn-text';
+            textSpan.innerText = f.name;
+
+            btn.appendChild(img);
+            btn.appendChild(textSpan);
             btn.onclick = () => showDetail(f.id);
             container.appendChild(btn);
         });
