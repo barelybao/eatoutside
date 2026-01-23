@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EatOutside</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 20px; line-height: 1.5; color: #333; }
-        h1 { font-size: 1.5rem; text-align: center; }
+        body { font-family: sans-serif; margin: 0; padding: 20px; line-height: 1.5; color: rgb(17, 25, 37); background-color: rgb(255, 209, 0); }
+        h1 { font-size: 1.5rem; text-align: center; color: rgb(17, 25, 37); }
         .hidden { display: none; }
-        
+
         /* List Screen */
-        .dish-btn { 
-            display: block; width: 100%; padding: 20px; margin-bottom: 10px; 
-            background: #f0f0f0; border: 1px solid #ccc; border-radius: 8px;
-            font-size: 1.1rem; text-align: left; cursor: pointer;
+        .dish-btn {
+            display: block; width: 100%; padding: 20px; margin-bottom: 10px;
+            background: rgb(247, 248, 249); border: 2px solid rgb(255, 209, 0); border-radius: 15px;
+            font-size: 1.1rem; text-align: left; cursor: pointer; color: rgb(17, 25, 37); font-weight: bold;
         }
+        .dish-btn:hover { background: rgb(255, 251, 230); border-color: rgb(255, 209, 0); }
 
         /* Detail Screen */
-        .reassurance { font-size: 0.95rem; margin-bottom: 20px; color: #555; text-align: center; }
-        .option { margin-bottom: 15px; padding: 10px; border-radius: 6px; }
-        .gentle { background: #e6fffa; border-left: 5px solid #38b2ac; }
-        .moderate { background: #fffaf0; border-left: 5px solid #ed8936; }
-        .heavy { background: #fff5f5; border-left: 5px solid #f56565; }
-        .tip { font-style: italic; margin-top: 20px; color: #666; border-top: 1px solid #eee; padding-top: 10px; }
-        .back-btn { margin-top: 20px; width: 100%; padding: 15px; background: #333; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        .reassurance { font-size: 0.95rem; margin-bottom: 20px; color: rgb(17, 25, 37); text-align: left; }
+        .option { margin-bottom: 15px; padding: 10px; border-radius: 15px; display: flex; align-items: center; }
+        .option-icon { height: 30px; width: auto; margin-right: 8px; flex-shrink: 0; }
+        .light { background: #fffbeb; border-left: 5px solid rgb(255, 209, 0); }
+        .caution { background: #fffbeb; border-left: 5px solid rgb(255, 209, 0); }
+        .avoid { background: #fffbeb; border-left: 5px solid rgb(255, 209, 0); }
+        .tip { margin-top: 20px; color: rgb(17, 25, 37); border-top: 2px solid rgb(255, 209, 0); padding-top: 10px; }
+        .back-btn { margin-top: 20px; width: 100%; padding: 15px; background: rgb(255, 209, 0); color: rgb(17, 25, 37); border: 2px solid rgb(255, 209, 0); border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        .back-btn:hover { background: rgb(255, 223, 77); }
 
         /* Footer */
-        footer { margin-top: 40px; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
-        .info-link { color: #666; text-decoration: underline; font-size: 0.9rem; margin: 0 10px; display: inline-block; }
+        footer { margin-top: 40px; text-align: center; border-top: 2px solid rgb(255, 209, 0); padding-top: 20px; }
+        .info-link { color: rgb(17, 25, 37); text-decoration: underline; font-size: 0.9rem; margin: 0 10px; display: inline-block; }
+        .info-link:hover { color: rgb(255, 209, 0); }
     </style>
 </head>
 <body>
 
     <div id="list-screen">
-        <h1>What are you eating?</h1>
+        <h1>What are you eating? (吃什么?)</h1>
         <div id="menu-container"></div>
         <footer>
             <a href="about.html" class="info-link">About</a>
@@ -42,51 +46,51 @@
     </div>
 
     <div id="detail-screen" class="hidden">
-        <p class="reassurance">You don't need to avoid this food — these are just lighter ways to eat it.</p>
+        <p class="reassurance">Choose the option that feels safest for your body today.</p>
         <div id="detail-content"></div>
-        <button class="back-btn" onclick="showList()">← Back to Menu</button>
+        <button class="back-btn" onclick="showList()">← Back to Menu（回菜单）</button>
     </div>
 
     <script>
         const foods = [
-            { 
-                id: 0, name: "Chicken Rice", tip: "Cucumber slices add a refreshing crunch to the meal.", 
+            {
+                id: 0, name: "Chicken Rice", tip: "Cucumber slices add a refreshing crunch to the meal.",
                 options: { light: "Poached chicken (skinless) + plain rice", caution: "Poached chicken + flavored rice", avoid: "Roasted chicken + flavored rice" }
             },
-            { 
-                id: 1, name: "Fish Soup", tip: "Clear broth is hydrating and easy on the stomach.", 
+            {
+                id: 1, name: "Fish Soup", tip: "Clear broth is hydrating and easy on the stomach.",
                 options: { light: "Sliced fish in clear broth", caution: "Fried fish in clear broth", avoid: "Fried fish in creamy broth" }
             },
-            { 
-                id: 2, name: "Yong Tau Foo", tip: "Tofu and leafy greens are soft and easy to digest.", 
+            {
+                id: 2, name: "Yong Tau Foo", tip: "Tofu and leafy greens are soft and easy to digest.",
                 options: { light: "Soup base with fresh tofu and greens", caution: "Dry style with sweet bean sauce", avoid: "Laksa broth or mostly crispy fried items" }
             },
-            { 
-                id: 3, name: "Ban Mian", tip: "Adding extra spinach makes the broth feel more balanced.", 
+            {
+                id: 3, name: "Ban Mian", tip: "Adding extra spinach makes the broth feel more balanced.",
                 options: { light: "Clear soup with extra vegetables", caution: "Dry style with minced meat", avoid: "Dry style with extra chili oil and fried ikan bilis" }
             },
-            { 
-                id: 4, name: "Nasi Lemak", tip: "The cucumber and egg provide a nice contrast in texture.", 
+            {
+                id: 4, name: "Nasi Lemak", tip: "The cucumber and egg provide a nice contrast in texture.",
                 options: { light: "Plain rice with ikan bilis, egg, and cucumber", caution: "Coconut rice with otah and wings", avoid: "Coconut rice with extra sambal and fried sides" }
             },
-            { 
-                id: 5, name: "Wanton Mee", tip: "Soup on the side helps keep the noodles soft.", 
+            {
+                id: 5, name: "Wanton Mee", tip: "Soup on the side helps keep the noodles soft.",
                 options: { light: "Soup version with steamed wantons", caution: "Dry version with char siew", avoid: "Dry version with extra sauce and fried wantons" }
             },
-            { 
-                id: 6, name: "Carrot Cake", tip: "White carrot cake has a simpler, more savory flavor profile.", 
+            {
+                id: 6, name: "Carrot Cake", tip: "White carrot cake has a simpler, more savory flavor profile.",
                 options: { light: "White version with more egg, less oil", caution: "White version standard", avoid: "Black version with sweet dark sauce" }
             },
-            { 
-                id: 7, name: "Economical Rice (Cai Fan)", tip: "Steamed options are often easier on the palate.", 
+            {
+                id: 7, name: "Economical Rice (Cai Fan)", tip: "Steamed options are often easier on the palate.",
                 options: { light: "Two steamed vegetable sides + 1 steamed protein", caution: "One stir-fry + 1 fried protein", avoid: "Multiple fried sides or heavy gravy over rice" }
             },
-            { 
-                id: 8, name: "Laksa", tip: "Sipping the broth slowly lets you enjoy the spices.", 
+            {
+                id: 8, name: "Laksa", tip: "Sipping the broth slowly lets you enjoy the spices.",
                 options: { light: "Standard bowl with extra bean sprouts", caution: "Standard bowl with extra cockles/fishcake", avoid: "Extra coconut gravy or added fried toppings" }
             },
-            { 
-                id: 9, name: "Bak Chor Mee", tip: "Vinegar adds a bright tang that cuts through the richness.", 
+            {
+                id: 9, name: "Bak Chor Mee", tip: "Vinegar adds a bright tang that cuts through the richness.",
                 options: { light: "Soup version with minced meat and mushrooms", caution: "Dry version with balanced sauce", avoid: "Dry version with extra lard and chili oil" }
             }
         ];
@@ -100,9 +104,18 @@
             const food = foods[id];
             const content = `
                 <h2>${food.name}</h2>
-                <div class="option gentle"><strong>Light:</strong> ${food.options.light}</div>
-                <div class="option moderate"><strong>Caution:</strong> ${food.options.caution}</div>
-                <div class="option heavy"><strong>Avoid:</strong> ${food.options.avoid}</div>
+                <div class="option light">
+                    <img src="./assets/img/ui/light.svg" alt="Light option" class="option-icon">
+                    <span><strong>Light:</strong> ${food.options.light}</span>
+                </div>
+                <div class="option caution">
+                    <img src="./assets/img/ui/caution.svg" alt="Caution option" class="option-icon">
+                    <span><strong>Caution:</strong> ${food.options.caution}</span>
+                </div>
+                <div class="option avoid">
+                    <img src="./assets/img/ui/avoid.svg" alt="Avoid option" class="option-icon">
+                    <span><strong>Avoid:</strong> ${food.options.avoid}</span>
+                </div>
                 <p class="tip">Tip: ${food.tip}</p>
             `;
             document.getElementById('detail-content').innerHTML = content;
