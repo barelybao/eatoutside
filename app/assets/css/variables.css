@@ -1,0 +1,43 @@
+:root {
+  /* Colors */
+  --color-primary: rgb(255, 209, 0);
+  --color-primary-hover: rgb(255, 223, 77);
+  --color-primary-light: rgb(255, 251, 230);
+  --color-text: rgb(17, 25, 37);
+  --color-text-secondary: #333;
+  --color-background-card: rgb(247, 248, 249);
+  --color-option-bg: #fffbeb;
+  --color-white: #fff;
+
+  /* Option level colors (from SVGs) */
+  --color-light: #00db63;
+  --color-caution: #f9ac00;
+  --color-avoid: #e80500;
+
+  /* Typography */
+  --font-family: sans-serif;
+  --font-size-base: 1.5rem;
+  --font-size-heading: 1.5rem;
+  --font-size-small: 0.95rem;
+  --font-size-link: 0.9rem;
+  --font-size-button: 1.1rem;
+  --line-height: 1.6;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --spacing-xxl: 40px;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-button: 13px;
+
+  /* Sizes */
+  --dish-btn-height: 80px;
+  --detail-image-height: 200px;
+  --option-icon-height: 30px;
+}
