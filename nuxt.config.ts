@@ -11,8 +11,8 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n'],
   runtimeConfig: {
     public: {
-      supabaseUrl: undefined,
-      supabaseAnonKey: undefined,
+      supabaseUrl: process.env.NUXT_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY,
     }
   },
   i18n: {
