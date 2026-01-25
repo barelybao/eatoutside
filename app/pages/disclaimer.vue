@@ -1,34 +1,33 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 useHead({
-  title: 'Disclaimer - Eat Outside'
+  title: computed(() => t('pages.disclaimer.title'))
 });
 </script>
 
 <template>
   <div class="disclaimer-page">
-    <h1>A Gentle Reminder</h1>
+    <h1>{{ $t('pages.disclaimer.heading') }}</h1>
 
     <div class="box">
       <p>
-        <strong>Not Medical Advice</strong><br />
-        The information provided is for educational and supportive purposes only. We are not medical
-        professionals. Suggestions are based on common preparation methods and general body-feel.
+        <strong>{{ $t('pages.disclaimer.notMedical.title') }}</strong><br />
+        {{ $t('pages.disclaimer.notMedical.content') }}
       </p>
 
       <p>
-        <strong>Listen to Your Body</strong><br />
-        Every body is different. Please prioritize your own comfort, medical requirements, and the
-        advice of your healthcare provider.
+        <strong>{{ $t('pages.disclaimer.listenBody.title') }}</strong><br />
+        {{ $t('pages.disclaimer.listenBody.content') }}
       </p>
 
       <p>
-        <strong>Allergies &amp; Safety</strong><br />
-        Always check with hawker stall owners regarding ingredients and allergens. Recipes can
-        change without notice.
+        <strong>{{ $t('pages.disclaimer.allergies.title') }}</strong><br />
+        {{ $t('pages.disclaimer.allergies.content') }}
       </p>
     </div>
 
-    <BackButton label="← Back to Menu" />
+    <BackButton />
   </div>
 </template>
 

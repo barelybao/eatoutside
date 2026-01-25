@@ -1,7 +1,11 @@
+<script setup lang="ts">
+const localePath = useLocalePath();
+</script>
+
 <template>
   <footer class="footer">
-    <NuxtLink to="/about" class="info-link">About</NuxtLink>
-    <NuxtLink to="/disclaimer" class="info-link">Disclaimer</NuxtLink>
+    <NuxtLink :to="localePath('/about')" class="info-link">{{ $t('ui.about') }}</NuxtLink>
+    <NuxtLink :to="localePath('/disclaimer')" class="info-link">{{ $t('ui.disclaimer') }}</NuxtLink>
   </footer>
 </template>
 

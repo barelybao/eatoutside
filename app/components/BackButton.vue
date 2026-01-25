@@ -3,11 +3,13 @@ defineProps<{
   to?: string;
   label?: string;
 }>();
+
+const localePath = useLocalePath();
 </script>
 
 <template>
-  <NuxtLink :to="to || '/'" class="back-btn">
-    {{ label || '← Back to Menu (回菜单)' }}
+  <NuxtLink :to="localePath(to || '/')" class="back-btn">
+    {{ label || $t('ui.backToMenu') }}
   </NuxtLink>
 </template>
 

@@ -1,16 +1,18 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 definePageMeta({
   layout: 'home'
 });
 
 useHead({
-  title: 'Eat Outside - Singapore Hawker Food Guide'
+  title: computed(() => `${t('ui.siteTitle')} - ${t('ui.siteDescription')}`)
 });
 </script>
 
 <template>
   <div class="home-page">
-    <h1>Eating outside? (吃什么?)</h1>
+    <h1>{{ $t('ui.title') }}</h1>
     <FoodList />
     <PageFooter />
   </div>

@@ -1,35 +1,25 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 useHead({
-  title: 'About - Eat Outside'
+  title: computed(() => t('pages.about.title'))
 });
 </script>
 
 <template>
   <div class="about-page">
-    <h1>Why Eat Outside?</h1>
+    <h1>{{ $t('pages.about.heading') }}</h1>
 
-    <h2>The Vision</h2>
-    <p>
-      Eating in Singapore is a national pastime, but it can often feel like a source of stress or
-      "health guilt." Eat Outside was created to help you navigate our beautiful food centers with
-      more ease and less anxiety.
-    </p>
+    <h2>{{ $t('pages.about.vision.title') }}</h2>
+    <p>{{ $t('pages.about.vision.content') }}</p>
 
-    <h2>Our Philosophy</h2>
-    <p>
-      We believe in <strong>harm reduction</strong>, not restriction. You don't need to stop eating
-      the foods you love to feel better. We don't use calorie counts or clinical language. Instead,
-      we offer simple adjustments that make your favorite meals feel a little lighter on the palate.
-    </p>
+    <h2>{{ $t('pages.about.philosophy.title') }}</h2>
+    <p>{{ $t('pages.about.philosophy.prefix') }} <strong>{{ $t('pages.about.philosophy.emphasis') }}</strong>{{ $t('pages.about.philosophy.content') }}</p>
 
-    <h2>How to Use This</h2>
-    <p>
-      Think of this as a gentle friend sitting across the table. Pick your dish and see the options.
-      Whether you choose a Light, Caution, or Avoid version depends entirely on how you feel
-      today—there are no wrong answers.
-    </p>
+    <h2>{{ $t('pages.about.howTo.title') }}</h2>
+    <p>{{ $t('pages.about.howTo.content') }}</p>
 
-    <BackButton label="← Back to Menu" />
+    <BackButton />
   </div>
 </template>
 

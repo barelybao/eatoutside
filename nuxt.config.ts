@@ -8,6 +8,17 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
+  modules: ['@nuxtjs/i18n'],
+  i18n: {
+    locales: [
+      { code: 'en', language: 'en-GB', file: 'en-GB.json' },
+      { code: 'zh', language: 'zh-CN', file: 'zh-CN.json' }
+    ],
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: 'locales',
+    strategy: 'prefix_except_default'
+  },
   css: ['~/assets/css/main.css'],
   app: {
     head: {

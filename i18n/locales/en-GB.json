@@ -1,0 +1,145 @@
+{
+  "ui": {
+    "siteTitle": "Eat Outside",
+    "siteDescription": "Singapore hawker food guide - make healthier choices with ease",
+    "title": "Eating outside?",
+    "subtitle": "吃什么?",
+    "backToMenu": "← Back to Menu",
+    "about": "About",
+    "disclaimer": "Disclaimer",
+    "reassurance": "Choose the option that feels safest for your body today.",
+    "options": {
+      "light": "Light",
+      "caution": "Caution",
+      "avoid": "Avoid"
+    }
+  },
+  "foods": {
+    "chicken-rice": {
+      "name": "Chicken Rice",
+      "tip": "Cucumber slices add a refreshing crunch to the meal.",
+      "options": {
+        "light": "Boiled chicken (skinless) + plain rice",
+        "caution": "Boiled chicken + flavoured rice",
+        "avoid": "Roasted chicken + flavoured rice"
+      }
+    },
+    "fish-soup": {
+      "name": "Fish Soup",
+      "tip": "Clear broth is hydrating and easy on the stomach.",
+      "options": {
+        "light": "Sliced fish in clear broth",
+        "caution": "Fried fish in clear broth",
+        "avoid": "Fried fish in milk broth"
+      }
+    },
+    "yong-tau-foo": {
+      "name": "Yong Tau Foo",
+      "tip": "Tofu and leafy greens are soft and easy to digest.",
+      "options": {
+        "light": "Soup base with fresh tofu and greens",
+        "caution": "Dry style with sweet bean sauce",
+        "avoid": "Laksa broth or mostly crispy fried items"
+      }
+    },
+    "ban-mian": {
+      "name": "Ban Mian",
+      "tip": "Adding extra spinach makes the broth feel more balanced.",
+      "options": {
+        "light": "Clear soup with extra vegetables",
+        "caution": "Dry style with minced meat",
+        "avoid": "Dry style with extra chilli oil and fried ikan bilis"
+      }
+    },
+    "nasi-lemak": {
+      "name": "Nasi Lemak",
+      "tip": "The cucumber and egg provide a nice contrast in texture.",
+      "options": {
+        "light": "Plain rice with ikan bilis, egg, and cucumber",
+        "caution": "Coconut rice with otah and wings",
+        "avoid": "Coconut rice with extra sambal and fried sides"
+      }
+    },
+    "wanton-mee": {
+      "name": "Wanton Mee",
+      "tip": "Soup on the side helps keep the noodles soft.",
+      "options": {
+        "light": "Soup version with boiled wantons",
+        "caution": "Dry version with char siew",
+        "avoid": "Dry version with extra sauce and fried wantons"
+      }
+    },
+    "carrot-cake": {
+      "name": "Carrot Cake",
+      "tip": "White carrot cake has a simpler, more savoury flavour profile.",
+      "options": {
+        "light": "White version with more egg, less oil",
+        "caution": "White version",
+        "avoid": "Black version"
+      }
+    },
+    "economical-rice": {
+      "name": "Economical Rice",
+      "tip": "Steamed options are often easier on the palate.",
+      "options": {
+        "light": "Two steamed vegetable sides + 1 steamed protein",
+        "caution": "One stir-fry + 1 fried protein",
+        "avoid": "Multiple fried sides or heavy gravy over rice"
+      }
+    },
+    "laksa": {
+      "name": "Laksa",
+      "tip": "Sipping the broth slowly lets you enjoy the spices.",
+      "options": {
+        "light": "Extra bean sprouts",
+        "caution": "Extra cockles/fishcake",
+        "avoid": "Extra soup or added fried toppings"
+      }
+    },
+    "bak-chor-mee": {
+      "name": "Bak Chor Mee",
+      "tip": "Vinegar adds a bright tang that cuts through the richness.",
+      "options": {
+        "light": "Soup version with minced meat and mushrooms",
+        "caution": "Dry version with balanced sauce",
+        "avoid": "Dry version with extra lard/chilli/sauce"
+      }
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "About - Eat Outside",
+      "heading": "Why Eat Outside?",
+      "vision": {
+        "title": "The Vision",
+        "content": "Eating in Singapore is a national pastime, but it can often feel like a source of stress or \"health guilt.\" Eat Outside was created to help you navigate our beautiful food centres with more ease and less anxiety."
+      },
+      "philosophy": {
+        "title": "Our Philosophy",
+        "prefix": "We believe in",
+        "emphasis": "harm reduction",
+        "content": ", not restriction. You don't need to stop eating the foods you love to feel better. We don't use calorie counts or clinical language. Instead, we offer simple adjustments that make your favourite meals feel a little lighter on the palate."
+      },
+      "howTo": {
+        "title": "How to Use This",
+        "content": "Think of this as a gentle friend sitting across the table. Pick your dish and see the options. Whether you choose a Light, Caution, or Avoid version depends entirely on how you feel today—there are no wrong answers."
+      }
+    },
+    "disclaimer": {
+      "title": "Disclaimer - Eat Outside",
+      "heading": "A Gentle Reminder",
+      "notMedical": {
+        "title": "Not Medical Advice",
+        "content": "The information provided is for educational and supportive purposes only. We are not medical professionals. Suggestions are based on common preparation methods and general body-feel."
+      },
+      "listenBody": {
+        "title": "Listen to Your Body",
+        "content": "Every body is different. Please prioritise your own comfort, medical requirements, and the advice of your healthcare provider."
+      },
+      "allergies": {
+        "title": "Allergies & Safety",
+        "content": "Always check with hawker stall owners regarding ingredients and allergens. Recipes can change without notice."
+      }
+    }
+  }
+}

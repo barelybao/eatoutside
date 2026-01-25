@@ -5,15 +5,18 @@ const props = defineProps<{
   food: Food;
 }>();
 
+const { t } = useI18n();
 const { getFoodImagePath } = useFood();
+const localePath = useLocalePath();
 
-const imagePath = computed(() => getFoodImagePath(props.food.name));
+const imagePath = computed(() => getFoodImagePath(props.food.slug));
+const foodName = computed(() => t(`foods.${props.food.slug}.name`));
 </script>
 
 <template>
-  <NuxtLink :to="`/food/${food.id}`" class="dish-btn">
-    <img :src="imagePath" :alt="food.name" />
-    <span class="dish-btn-text">{{ food.name }}</span>
+  <NuxtLink :to="localePath(`/food/${food.slug}`)" class="dish-btn">
+    <img :src="imagePath" :alt="foodName" />
+    <span class="dish-btn-text">{{ foodName }}</span>
   </NuxtLink>
 </template>
 

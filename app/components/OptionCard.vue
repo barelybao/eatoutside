@@ -3,19 +3,22 @@ import type { OptionLevel } from '../types/food';
 
 const props = defineProps<{
   level: OptionLevel;
-  description: string;
+  slug: string;
 }>();
 
+const { t } = useI18n();
 const { optionConfigs } = useFood();
 
 const config = computed(() => optionConfigs[props.level]);
+const optionLabel = computed(() => t(`ui.options.${props.level}`));
+const description = computed(() => t(`foods.${props.slug}.options.${props.level}`));
 </script>
 
 <template>
   <div :class="['option', level]">
     <div class="option-top">
-      <img :src="config.icon" :alt="`${config.label} option`" class="option-icon" />
-      <span class="option-label">{{ config.label }}:</span>
+      <img :src="config.icon" :alt="`${optionLabel} option`" class="option-icon" />
+      <span class="option-label">{{ optionLabel }}:</span>
     </div>
     <div class="option-content">{{ description }}</div>
   </div>

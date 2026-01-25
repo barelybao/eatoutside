@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const route = useRoute();
-const { getFoodById } = useFood();
+const { t } = useI18n();
+const { getFoodBySlug } = useFood();
 
-const foodId = computed(() => Number(route.params.id));
-const food = computed(() => getFoodById(foodId.value));
+const slug = computed(() => route.params.slug as string);
+const food = computed(() => getFoodBySlug(slug.value));
 
 if (!food.value) {
   throw createError({
@@ -12,8 +13,10 @@ if (!food.value) {
   });
 }
 
+const foodName = computed(() => t(`foods.${slug.value}.name`));
+
 useHead({
-  title: `${food.value?.name} - Eat Outside`
+  title: computed(() => `${foodName.value} - ${t('ui.siteTitle')}`)
 });
 </script>
 

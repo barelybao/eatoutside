@@ -5,27 +5,30 @@ const props = defineProps<{
   food: Food;
 }>();
 
+const { t } = useI18n();
 const { getFoodImagePath } = useFood();
 
-const imagePath = computed(() => getFoodImagePath(props.food.name));
+const imagePath = computed(() => getFoodImagePath(props.food.slug));
+const foodName = computed(() => t(`foods.${props.food.slug}.name`));
+const foodTip = computed(() => t(`foods.${props.food.slug}.tip`));
 </script>
 
 <template>
   <div class="food-detail">
     <div class="detail-image-container">
-      <img :src="imagePath" :alt="food.name" class="detail-image" />
+      <img :src="imagePath" :alt="foodName" class="detail-image" />
     </div>
 
     <div class="detail-content">
-      <h2 class="food-name">{{ food.name }}</h2>
+      <h2 class="food-name">{{ foodName }}</h2>
 
-      <p class="reassurance">Choose the option that feels safest for your body today.</p>
+      <p class="reassurance">{{ $t('ui.reassurance') }}</p>
 
-      <OptionCard level="light" :description="food.options.light" />
-      <OptionCard level="caution" :description="food.options.caution" />
-      <OptionCard level="avoid" :description="food.options.avoid" />
+      <OptionCard level="light" :slug="food.slug" />
+      <OptionCard level="caution" :slug="food.slug" />
+      <OptionCard level="avoid" :slug="food.slug" />
 
-      <p class="tip">{{ food.tip }}</p>
+      <p class="tip">{{ foodTip }}</p>
 
       <BackButton />
     </div>
