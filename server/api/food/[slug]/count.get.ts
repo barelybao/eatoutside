@@ -1,14 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
-
+import { supabase } from '@/supabase'
 export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
-  const config = useRuntimeConfig()
-
-  // Initialize Supabase client
-  const supabase = createClient(
-    config.supabaseUrl as string,
-    config.supabaseAnonKey as string
-  )
 
   // Get Singapore date range (start and end of day in SGT timezone)
   const singaporeDate = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' })
