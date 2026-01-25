@@ -10,8 +10,6 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/i18n'],
   runtimeConfig: {
-    supabaseUrl: process.env.NUXT_SUPABASE_URL,
-    supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY,
     public: {
       supabaseUrl: process.env.NUXT_SUPABASE_URL,
       supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY
