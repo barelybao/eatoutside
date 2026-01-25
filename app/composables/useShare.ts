@@ -47,18 +47,6 @@ export function useShare() {
     }
   };
 
-  // WhatsApp direct link
-  const shareViaWhatsApp = (slug: string, foodName: string, locale: string) => {
-    const url = encodeURIComponent(getShareUrl(slug, locale));
-    const text = encodeURIComponent(getShareText(foodName));
-    const whatsappUrl = `https://wa.me/?text=${text}%20${url}`;
-
-    if (typeof window !== 'undefined') {
-      window.open(whatsappUrl, '_blank');
-    }
-    return { success: true, method: 'whatsapp' };
-  };
-
   // Clipboard copy as fallback
   const copyToClipboard = async (slug: string, foodName: string, locale: string) => {
     if (typeof navigator === 'undefined' || !navigator.clipboard) {
@@ -75,38 +63,25 @@ export function useShare() {
     }
   };
 
-  // Main share function - tries different methods
-  const shareRecipe = async (
-    slug: string,
-    foodName: string,
-    locale: string,
-    preferredMethod?: 'web-api' | 'whatsapp' | 'clipboard'
-  ) => {
-    // If preferred method is specified, try it first
-    if (preferredMethod === 'whatsapp') {
-      return shareViaWhatsApp(slug, foodName, locale);
-    }
+  // Main share function - tries Web Share API first, falls back to clipboard copy
+  const shareRecipe = async (slug: string, foodName: string, locale: string) => {
+    // Try Web Share API first (best UX on mobile)
+    console.log('canShare.value:', canShare.value, 'navigator.share:', typeof navigator !== 'undefined' ? navigator.share : 'undefined');
 
-    if (preferredMethod === 'clipboard') {
-      return await copyToClipboard(slug, foodName, locale);
-    }
-
-    // Default behavior: Try Web Share API first (best UX on mobile)
     if (canShare.value) {
       const result = await shareViaWebAPI(slug, foodName, locale);
+      console.log('Web Share API result:', result);
       if (result.success) {
         return result;
       }
     }
 
-    // Fallback to clipboard
+    // Fallback to clipboard copy (better UX on desktop)
+    console.log('Falling back to clipboard copy');
     return await copyToClipboard(slug, foodName, locale);
   };
 
   return {
-    canShare,
-    shareRecipe,
-    shareViaWhatsApp,
-    copyToClipboard
+    shareRecipe
   };
 }

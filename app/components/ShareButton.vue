@@ -5,17 +5,10 @@ const props = defineProps<{
   compact?: boolean;
 }>();
 
-const { t } = useI18n();
 const { locale } = useI18n();
 const { shareRecipe } = useShare();
 
 const isSharing = ref(false);
-const showSuccess = ref(false);
-
-const shareLabel = computed(() => {
-  if (isSharing.value) return t('ui.share.sharing');
-  return props.compact ? '' : t('ui.share.share');
-});
 
 const handleShare = async () => {
   if (isSharing.value) return;
@@ -23,18 +16,11 @@ const handleShare = async () => {
   isSharing.value = true;
 
   try {
-    const result = await shareRecipe(
+    await shareRecipe(
       props.slug,
       props.foodName,
       locale.value
     );
-
-    if (result.success) {
-      showSuccess.value = true;
-      setTimeout(() => {
-        showSuccess.value = false;
-      }, 2000);
-    }
   } catch (error) {
     console.error('Share error:', error);
   } finally {
@@ -49,7 +35,7 @@ const handleShare = async () => {
       @click="handleShare"
       :disabled="isSharing"
       class="share-btn"
-      :class="{ 'showing-success': showSuccess, compact: compact }"
+      :class="{ compact: compact }"
     >
       <svg v-if="compact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="share-icon">
         <circle cx="18" cy="5" r="3"></circle>
@@ -58,10 +44,6 @@ const handleShare = async () => {
         <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
         <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
       </svg>
-      <span v-if="!compact" class="share-text">{{ shareLabel }}</span>
-      <span v-if="showSuccess && !compact" class="success-message">
-        {{ t('ui.share.copied') }}
-      </span>
     </button>
   </div>
 </template>
@@ -96,8 +78,6 @@ const handleShare = async () => {
   justify-content: center;
   gap: var(--spacing-sm);
   transition: background 0.2s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .share-btn.compact {
@@ -117,29 +97,8 @@ const handleShare = async () => {
   cursor: not-allowed;
 }
 
-.share-btn.showing-success {
-  background: var(--color-light);
-  border-color: var(--color-light);
-}
-
 .share-icon {
   width: 24px;
   height: 24px;
-}
-
-.share-text {
-  flex: 1;
-}
-
-.success-message {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-light);
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Food } from '../types/food';
-import { getFoodCount, incrementFoodCount } from '../utils/api';
+import { getFoodCount, recordMeal } from '../utils/api';
 
 const props = defineProps<{
   food: Food;
@@ -38,11 +38,11 @@ const incrementCounter = async () => {
 
   isIncrementing.value = true;
   try {
-    const response = await incrementFoodCount(props.food.slug);
+    const response = await recordMeal(props.food.slug);
     counterCount.value = response.count;
     hasIncremented.value = true;
   } catch (error) {
-    console.error('Failed to increment counter:', error);
+    console.error('Failed to record meal:', error);
   } finally {
     isIncrementing.value = false;
   }
@@ -73,9 +73,18 @@ const counterText = computed(() => {
 
       <p class="reassurance">{{ $t('ui.reassurance') }}</p>
 
-      <OptionCard level="light" :slug="food.slug" />
-      <OptionCard level="caution" :slug="food.slug" />
-      <OptionCard level="avoid" :slug="food.slug" />
+      <OptionCard
+        level="light"
+        :slug="food.slug"
+      />
+      <OptionCard
+        level="caution"
+        :slug="food.slug"
+      />
+      <OptionCard
+        level="avoid"
+        :slug="food.slug"
+      />
 
       <p class="tip">{{ foodTip }}</p>
 
