@@ -18,6 +18,9 @@
       "beFirst": "Be the first to eat this today",
       "iAteThis": "I ate this!",
       "loading": "Loading..."
+    },
+    "share": {
+      "text": "Check this out: {name} - Eat Outside"
     }
   },
   "foods": {

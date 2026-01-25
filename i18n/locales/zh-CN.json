@@ -18,6 +18,9 @@
       "beFirst": "成为今天第一个吃这个的人",
       "iAteThis": "我吃过这个！",
       "loading": "加载中..."
+    },
+    "share": {
+      "text": "来看看这个：{name} - Eat Outside"
     }
   },
   "foods": {

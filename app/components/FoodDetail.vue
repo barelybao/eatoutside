@@ -66,6 +66,8 @@ const counterText = computed(() => {
       <img :src="imagePath" :alt="foodName" class="detail-image" />
     </div>
 
+    <ShareButton :slug="food.slug" :food-name="foodName" compact />
+
     <div class="detail-content">
       <h2 class="food-name">{{ foodName }}</h2>
 
@@ -96,6 +98,7 @@ const counterText = computed(() => {
 <style scoped>
 .food-detail {
   padding-top: var(--spacing-md);
+  position: relative;
 }
 
 .detail-image-container {
