@@ -59,39 +59,9 @@ export function useShare() {
     return { success: true, method: 'whatsapp' };
   };
 
-  // Clipboard copy as fallback
-  const copyToClipboard = async (slug: string, foodName: string, locale: string) => {
-    if (typeof navigator === 'undefined' || !navigator.clipboard) {
-      return { success: false, method: 'clipboard', error: 'Clipboard API not available' };
-    }
-
-    try {
-      const text = `${getShareText(foodName)}\n${getShareUrl(slug, locale)}`;
-      await navigator.clipboard.writeText(text);
-      return { success: true, method: 'clipboard' };
-    } catch (error) {
-      console.error('Clipboard error:', error);
-      return { success: false, method: 'clipboard', error: String(error) };
-    }
-  };
-
-  // Main share function - tries different methods
-  const shareRecipe = async (
-    slug: string,
-    foodName: string,
-    locale: string,
-    preferredMethod?: 'web-api' | 'whatsapp' | 'clipboard'
-  ) => {
-    // If preferred method is specified, try it first
-    if (preferredMethod === 'whatsapp') {
-      return shareViaWhatsApp(slug, foodName, locale);
-    }
-
-    if (preferredMethod === 'clipboard') {
-      return await copyToClipboard(slug, foodName, locale);
-    }
-
-    // Default behavior: Try Web Share API first (best UX on mobile)
+  // Main share function - tries Web Share API first, falls back to WhatsApp
+  const shareRecipe = async (slug: string, foodName: string, locale: string) => {
+    // Try Web Share API first (best UX on mobile)
     if (canShare.value) {
       const result = await shareViaWebAPI(slug, foodName, locale);
       if (result.success) {
@@ -99,14 +69,11 @@ export function useShare() {
       }
     }
 
-    // Fallback to clipboard
-    return await copyToClipboard(slug, foodName, locale);
+    // Fallback to WhatsApp
+    return shareViaWhatsApp(slug, foodName, locale);
   };
 
   return {
-    canShare,
-    shareRecipe,
-    shareViaWhatsApp,
-    copyToClipboard
+    shareRecipe
   };
 }
