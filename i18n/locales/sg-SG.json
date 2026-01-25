@@ -1,0 +1,153 @@
+{
+  "ui": {
+    "siteTitle": "Eat Outside?",
+    "siteDescription": "Singapore hawker food guide - make healthier choices with ease",
+    "subtitle": "Eat what?",
+    "backToMenu": "← Back to Menu",
+    "about": "About",
+    "disclaimer": "Disclaimer",
+    "reassurance": "Choose whatever your body can handle today lah.",
+    "options": {
+      "light": "Safe",
+      "caution": "Steady",
+      "avoid": "Better Don't"
+    },
+    "counter": {
+      "peopleAte": "1 person ate this. | {count} people ate this.",
+      "beFirst": "Be the first to eat this!",
+      "iAteThis": "I ate this!",
+      "loading": "Loading..."
+    },
+    "share": {
+      "text": "Check this out: {name} - Eat Outside"
+    }
+  },
+  "foods": {
+    "chicken-rice": {
+      "name": "Chicken Rice",
+      "tip": "The cucumber helps to make the meal not so jelak.",
+      "options": {
+        "light": "White chicken (no skin) + plain rice",
+        "caution": "White chicken + oily rice",
+        "avoid": "Roasted chicken + oily rice"
+      }
+    },
+    "fish-soup": {
+      "name": "Fish Soup",
+      "tip": "Clear soup very shiok, easy for the stomach.",
+      "options": {
+        "light": "Fish slice in clear soup",
+        "caution": "Fried fish in clear soup",
+        "avoid": "Fried fish in milky soup"
+      }
+    },
+    "yong-tau-foo": {
+      "name": "Yong Tau Foo",
+      "tip": "Tofu and veggies all very soft, eat already won't feel bloated.",
+      "options": {
+        "light": "Soup base with fresh tofu and greens",
+        "caution": "Dry style with sweet sauce",
+        "avoid": "Laksa soup or mostly fried items"
+      }
+    },
+    "ban-mian": {
+      "name": "Ban Mian",
+      "tip": "Add more spinach, the soup will feel more balanced.",
+      "options": {
+        "light": "Clear soup with more veg",
+        "caution": "Dry style with minced meat",
+        "avoid": "Dry style with extra chilli and fried ikan bilis"
+      }
+    },
+    "nasi-lemak": {
+      "name": "Nasi Lemak",
+      "tip": "Cucumber and egg give nice contrast in texture.",
+      "options": {
+        "light": "Plain rice with ikan bilis, egg, and cucumber",
+        "caution": "Coconut rice with otah and chicken wing",
+        "avoid": "Coconut rice with extra sambal and fried stuff"
+      }
+    },
+    "wanton-mee": {
+      "name": "Wanton Mee",
+      "tip": "Must eat with soup, then noodles won't be so dry.",
+      "options": {
+        "light": "Soup version with boiled wanton",
+        "caution": "Dry version with char siew",
+        "avoid": "Dry version with extra sauce and fried wanton"
+      }
+    },
+    "carrot-cake": {
+      "name": "Carrot Cake",
+      "tip": "White carrot cake taste lighter, not so heavy.",
+      "options": {
+        "light": "White one with more egg, less oil",
+        "caution": "White version",
+        "avoid": "Black version"
+      }
+    },
+    "economical-rice": {
+      "name": "Economical Rice",
+      "tip": "Steamed dishes usually easier to eat.",
+      "options": {
+        "light": "Two veg + 1 steamed meat",
+        "caution": "One stir-fry + 1 fried meat",
+        "avoid": "Many fried dishes or heavy gravy on rice"
+      }
+    },
+    "laksa": {
+      "name": "Laksa",
+      "tip": "Drink the soup slowly, can enjoy the spices better.",
+      "options": {
+        "light": "More bean sprouts",
+        "caution": "More cockles/fishcake",
+        "avoid": "More soup or add fried toppings"
+      }
+    },
+    "bak-chor-mee": {
+      "name": "Bak Chor Mee",
+      "tip": "The vinegar helps to cut the richness, very shiok.",
+      "options": {
+        "light": "Soup version with minced meat and mushrooms",
+        "caution": "Dry version with normal sauce",
+        "avoid": "Dry version with extra lard/chilli/sauce"
+      }
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "About - Eat Outside",
+      "heading": "Why Eat Outside?",
+      "vision": {
+        "title": "The Vision",
+        "content": "Eating at hawker centres is our Singaporean lifestyle, but sometimes can feel very stressful or got 'health guilt'. Eat Outside is here to help you enjoy our hawker food with less worry, more shiok."
+      },
+      "philosophy": {
+        "title": "Our Philosophy",
+        "prefix": "We believe in",
+        "emphasis": "harm reduction",
+        "content": ", not restriction. You no need to stop eating your favourite food to feel better. We don't count calories or use medical terms. We just give simple suggestions to make your meal feel lighter."
+      },
+      "howTo": {
+        "title": "How to Use This",
+        "content": "Think of this like a friend giving you suggestions. Pick your dish and see the options. Whether you choose Safe, Steady, or Better Don't totally depends on how you feel today lah—no right or wrong answer."
+      }
+    },
+    "disclaimer": {
+      "title": "Disclaimer - Eat Outside",
+      "heading": "Gentle Reminder",
+      "notMedical": {
+        "title": "Not Medical Advice",
+        "content": "The information here is just for guidance only. We are not doctors. Suggestions are based on common cooking methods and general feeling only."
+      },
+      "listenBody": {
+        "title": "Listen to Your Body",
+        "content": "Everyone's body is different. Please listen to your own body, follow your medical needs, and listen to your doctor's advice."
+      },
+      "allergies": {
+        "title": "Allergies & Safety",
+        "content": "Must always check with the auntie/uncle at the stall about ingredients and allergies. Recipes can change anytime one."
+      }
+    }
+  }
+}

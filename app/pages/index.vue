@@ -12,7 +12,6 @@ useHead({
 
 <template>
   <div class="home-page">
-    <h1>{{ $t('ui.title') }}</h1>
     <FoodList />
     <PageFooter />
   </div>

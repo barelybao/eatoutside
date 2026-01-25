@@ -1,8 +1,7 @@
 {
   "ui": {
-    "siteTitle": "外出吃饭",
+    "siteTitle": "外出吃饭?",
     "siteDescription": "新加坡小贩美食指南 - 轻松做出更健康的选择",
-    "title": "外出吃饭?",
     "subtitle": "吃什么?",
     "backToMenu": "← 回菜单",
     "about": "关于",
@@ -14,8 +13,8 @@
       "avoid": "避免"
     },
     "counter": {
-      "peopleAte": "今天有 {count} 个人吃过这个",
-      "beFirst": "成为今天第一个吃这个的人",
+      "peopleAte": "有 {count} 个人吃过这个",
+      "beFirst": "成为第一个吃这个的人",
       "iAteThis": "我吃过这个！",
       "loading": "加载中..."
     },

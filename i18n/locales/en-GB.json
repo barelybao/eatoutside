@@ -1,8 +1,7 @@
 {
   "ui": {
-    "siteTitle": "Eat Outside",
+    "siteTitle": "Eat Outside?",
     "siteDescription": "Singapore hawker food guide - make healthier choices with ease",
-    "title": "Eating Outside?",
     "subtitle": "吃什么?",
     "backToMenu": "← Back to Menu",
     "about": "About",
@@ -14,8 +13,8 @@
       "avoid": "Avoid"
     },
     "counter": {
-      "peopleAte": "1 person ate this today. | {count} people ate this today.",
-      "beFirst": "Be the first to eat this today",
+      "peopleAte": "1 person ate this. | {count} people ate this.",
+      "beFirst": "Be the first to eat this!",
       "iAteThis": "I ate this!",
       "loading": "Loading..."
     },

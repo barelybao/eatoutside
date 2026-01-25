@@ -3,9 +3,10 @@ export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
 
   // Get Singapore date range (start and end of day in SGT timezone)
-  const singaporeDate = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' })
-  const startOfDay = new Date(`${singaporeDate}T00:00:00+08:00`).toISOString()
-  const endOfDay = new Date(`${singaporeDate}T23:59:59+08:00`).toISOString()
+  // Commenting this out for now, as we may want to implement a different time range in the future
+  // const singaporeDate = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' })
+  // const startOfDay = new Date(`${singaporeDate}T00:00:00+08:00`).toISOString()
+  // const endOfDay = new Date(`${singaporeDate}T23:59:59+08:00`).toISOString()
 
   try {
     // Query Supabase for count using timestamp range
@@ -13,8 +14,8 @@ export default defineEventHandler(async (event) => {
       .from('meal_records')
       .select('*', { count: 'exact', head: true })
       .eq('meal_id', slug)  // Use slug directly
-      .gte('created_at', startOfDay)
-      .lt('created_at', endOfDay)
+      // .gte('created_at', startOfDay)
+      // .lt('created_at', endOfDay)
 
     if (error) {
       console.error('Supabase error:', error)
@@ -22,8 +23,7 @@ export default defineEventHandler(async (event) => {
     }
 
     return {
-      count: count || 0,
-      date: singaporeDate
+      count: count || 0
     }
   } catch (err) {
     console.error('Error fetching count:', err)
