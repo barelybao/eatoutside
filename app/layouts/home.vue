@@ -28,13 +28,13 @@ const localePath = useLocalePath();
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-md);
+  padding-left: 0;
 }
 
 .site-title {
   margin: 0;
   font-size: var(--font-size-base);
   font-weight: bold;
-  flex-grow: 1;
 }
 
 .site-title-link {
