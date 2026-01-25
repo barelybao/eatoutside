@@ -1,25 +1,32 @@
 <script setup lang="ts">
-const { locale, locales } = useI18n();
+const { locale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
-const availableLocales = computed(() =>
-  (locales.value as Array<{ code: string; language: string }>).filter(l => l.code !== locale.value)
-);
+const locales: Array<'en' | 'zh'> = ['en', 'zh'];
 
-const currentLocaleLabel = computed(() => locale.value === 'en' ? 'EN' : '中');
+const localeLabels: Record<'en' | 'zh', string> = {
+  en: 'EN',
+  zh: '中文'
+};
 </script>
 
 <template>
   <div class="language-toggle">
-    <NuxtLink
-      v-for="loc in availableLocales"
-      :key="loc.code"
-      :to="switchLocalePath(loc.code)"
-      class="lang-link"
-    >
-      {{ loc.code === 'en' ? 'EN' : '中文' }}
-    </NuxtLink>
-    <span class="current-lang">{{ currentLocaleLabel }}</span>
+    <template v-for="loc in locales" :key="loc">
+      <NuxtLink
+        v-if="loc !== locale"
+        :to="switchLocalePath(loc)"
+        class="lang-link"
+      >
+        {{ localeLabels[loc] }}
+      </NuxtLink>
+      <span
+        v-else
+        class="current-lang"
+      >
+        {{ localeLabels[loc] }}
+      </span>
+    </template>
   </div>
 </template>
 

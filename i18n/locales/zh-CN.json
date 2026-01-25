@@ -12,6 +12,12 @@
       "light": "清淡",
       "caution": "适量",
       "avoid": "避免"
+    },
+    "counter": {
+      "peopleAte": "今天有 {count} 个人吃过这个",
+      "beFirst": "成为今天第一个吃这个的人",
+      "iAteThis": "我吃过这个！",
+      "loading": "加载中..."
     }
   },
   "foods": {

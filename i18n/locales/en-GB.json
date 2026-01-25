@@ -12,6 +12,12 @@
       "light": "Light",
       "caution": "Caution",
       "avoid": "Avoid"
+    },
+    "counter": {
+      "peopleAte": "1 person ate this today. | {count} people ate this today.",
+      "beFirst": "Be the first to eat this today",
+      "iAteThis": "I ate this!",
+      "loading": "Loading..."
     }
   },
   "foods": {
