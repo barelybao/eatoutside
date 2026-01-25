@@ -28,7 +28,6 @@ const foodName = computed(() => t(`foods.${props.food.slug}.name`));
   padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
   margin-bottom: var(--spacing-sm);
   background: var(--color-background-card);
-  border: 2px solid var(--color-primary);
   border-radius: var(--radius-md);
   font-size: var(--font-size-base);
   text-align: left;

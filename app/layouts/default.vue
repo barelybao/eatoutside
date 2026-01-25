@@ -17,6 +17,6 @@
 .layout-header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 </style>

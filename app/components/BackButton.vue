@@ -17,13 +17,14 @@ const localePath = useLocalePath();
 .back-btn {
   display: block;
   margin-top: var(--spacing-lg);
+  margin-bottom: 0;
   width: 100%;
   padding: var(--spacing-md);
   background: var(--color-primary);
   color: var(--color-text);
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-sm);
-  font-size: var(--font-size-button);
+  font-size: var(--font-size-base);
   font-weight: bold;
   cursor: pointer;
   text-align: center;

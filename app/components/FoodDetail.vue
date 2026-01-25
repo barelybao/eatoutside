@@ -37,7 +37,7 @@ const foodTip = computed(() => t(`foods.${props.food.slug}.tip`));
 
 <style scoped>
 .food-detail {
-  padding-top: 0;
+  padding-top: var(--spacing-md);
 }
 
 .detail-image-container {
@@ -68,7 +68,7 @@ const foodTip = computed(() => t(`foods.${props.food.slug}.tip`));
 }
 
 .reassurance {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-base);
   margin-bottom: var(--spacing-lg);
   color: var(--color-text);
   text-align: left;
@@ -76,6 +76,7 @@ const foodTip = computed(() => t(`foods.${props.food.slug}.tip`));
 
 .tip {
   margin-top: var(--spacing-lg);
+  margin-bottom: 0;
   color: var(--color-text);
   border-top: 2px solid var(--color-primary);
   padding-top: var(--spacing-sm);
