@@ -47,30 +47,38 @@ export function useShare() {
     }
   };
 
-  // WhatsApp direct link
-  const shareViaWhatsApp = (slug: string, foodName: string, locale: string) => {
-    const url = encodeURIComponent(getShareUrl(slug, locale));
-    const text = encodeURIComponent(getShareText(foodName));
-    const whatsappUrl = `https://wa.me/?text=${text}%20${url}`;
-
-    if (typeof window !== 'undefined') {
-      window.open(whatsappUrl, '_blank');
+  // Clipboard copy as fallback
+  const copyToClipboard = async (slug: string, foodName: string, locale: string) => {
+    if (typeof navigator === 'undefined' || !navigator.clipboard) {
+      return { success: false, method: 'clipboard', error: 'Clipboard API not available' };
     }
-    return { success: true, method: 'whatsapp' };
+
+    try {
+      const text = `${getShareText(foodName)}\n${getShareUrl(slug, locale)}`;
+      await navigator.clipboard.writeText(text);
+      return { success: true, method: 'clipboard' };
+    } catch (error) {
+      console.error('Clipboard error:', error);
+      return { success: false, method: 'clipboard', error: String(error) };
+    }
   };
 
-  // Main share function - tries Web Share API first, falls back to WhatsApp
+  // Main share function - tries Web Share API first, falls back to clipboard copy
   const shareRecipe = async (slug: string, foodName: string, locale: string) => {
     // Try Web Share API first (best UX on mobile)
+    console.log('canShare.value:', canShare.value, 'navigator.share:', typeof navigator !== 'undefined' ? navigator.share : 'undefined');
+
     if (canShare.value) {
       const result = await shareViaWebAPI(slug, foodName, locale);
+      console.log('Web Share API result:', result);
       if (result.success) {
         return result;
       }
     }
 
-    // Fallback to WhatsApp
-    return shareViaWhatsApp(slug, foodName, locale);
+    // Fallback to clipboard copy (better UX on desktop)
+    console.log('Falling back to clipboard copy');
+    return await copyToClipboard(slug, foodName, locale);
   };
 
   return {

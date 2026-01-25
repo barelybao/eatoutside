@@ -1,25 +1,41 @@
-// Fake API utility - will be replaced with real API calls later
-interface CounterResponse {
-  count: number;
-}
+// Real API utility - connects to Supabase backend
 
-// Simulate API delay
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+export interface CounterResponse {
+  count: number;
+  date: string;
+  alreadyRecorded?: boolean;
+}
 
 // Get current count for a food item
-export async function getFoodCount(_foodSlug: string): Promise<CounterResponse> {
-  await delay(300); // Simulate network delay
-
-  // Return 0 by default (will come from database later)
-  const count = 0;
-  return { count };
+export async function getFoodCount(foodSlug: string): Promise<CounterResponse> {
+  try {
+    const response = await $fetch<CounterResponse>(`/api/food/${foodSlug}/count`)
+    return response
+  } catch (error) {
+    console.error('Failed to fetch food count:', error)
+    return {
+      count: 0,
+      date: new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' })
+    }
+  }
 }
 
-// Increment count for a food item
-export async function incrementFoodCount(_foodSlug: string): Promise<CounterResponse> {
-  await delay(500); // Simulate network delay
+// Record a meal
+export async function recordMeal(foodSlug: string): Promise<CounterResponse> {
+  try {
+    const response = await $fetch<CounterResponse>(`/api/food/${foodSlug}/record`, {
+      method: 'POST'
+    })
+    return response
+  } catch (error) {
+    console.error('Failed to record meal:', error)
+    throw error
+  }
+}
 
-  // Return incremented count (will update database later)
-  const newCount = 1; // Mock response - user is the first
-  return { count: newCount };
+// Legacy function for backwards compatibility
+export async function incrementFoodCount(foodSlug: string): Promise<CounterResponse> {
+  // This function is deprecated - use recordMeal instead
+  console.warn('incrementFoodCount is deprecated. Use recordMeal instead.')
+  return recordMeal(foodSlug)
 }

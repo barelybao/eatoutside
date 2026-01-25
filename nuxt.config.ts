@@ -9,13 +9,20 @@ export default defineNuxtConfig({
     strict: true
   },
   modules: ['@nuxtjs/i18n'],
+  runtimeConfig: {
+    supabaseUrl: process.env.NUXT_SUPABASE_URL,
+    supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY,
+    public: {
+      supabaseUrl: process.env.NUXT_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY
+    }
+  },
   i18n: {
     locales: [
       { code: 'en', language: 'en-GB', file: 'en-GB.json' },
       { code: 'zh', language: 'zh-CN', file: 'zh-CN.json' }
     ],
     defaultLocale: 'en',
-    lazy: true,
     langDir: 'locales',
     strategy: 'prefix_except_default'
   },
