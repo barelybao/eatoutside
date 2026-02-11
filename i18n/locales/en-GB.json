@@ -6,14 +6,16 @@
     "backToMenu": "← Back to Menu",
     "about": "About",
     "disclaimer": "Disclaimer",
-    "reassurance": "Choose the option that feels safest for your body today.",
+    "reassurance": "Different stalls, different styles. Pick what makes you feel good today.",
     "options": {
-      "light": "Light",
-      "caution": "Caution",
-      "avoid": "Avoid"
+      "safer": "Safer",
+      "sometimes": "Sometimes",
+      "better-not": "Better not"
     },
+    "portionTip": "Portion tips",
+    "sauceTip": "Sauce tips",
     "counter": {
-      "peopleAte": "1 person ate this. | {count} people ate this.",
+      "peopleAte": "No one has eaten this yet | {count} person ate this | {count} people ate this",
       "beFirst": "Be the first to eat this!",
       "iAteThis": "I ate this!",
       "loading": "Loading..."
@@ -25,93 +27,153 @@
   "foods": {
     "chicken-rice": {
       "name": "Chicken Rice",
-      "tip": "Cucumber slices add a refreshing crunch to the meal.",
       "options": {
-        "light": "Boiled chicken (skinless) + plain rice",
-        "caution": "Boiled chicken + flavoured rice",
-        "avoid": "Roasted chicken + flavoured rice"
-      }
+        "safer": "Boiled chicken (skinless) + plain rice",
+        "sometimes": "Boiled chicken + flavoured rice",
+        "better-not": "Roasted chicken + flavoured rice"
+      },
+      "reasons": {
+        "safer": "Less oil, gentle on digestion",
+        "sometimes": "Flavoured rice has more oil",
+        "better-not": "Roasted skin is harder to digest"
+      },
+      "portionTip": "Start with half portion if you're not very hungry",
+      "sauceTip": "👍 Chilli — small amount\n⚠️ Ginger — moderate\n🚫 Dark soy / sweet sauce — high sugar & sodium"
     },
     "fish-soup": {
       "name": "Fish Soup",
-      "tip": "Clear broth is hydrating and easy on the stomach.",
       "options": {
-        "light": "Sliced fish in clear broth",
-        "caution": "Fried fish in clear broth",
-        "avoid": "Fried fish in milk broth"
-      }
+        "safer": "Sliced fish in clear soup",
+        "sometimes": "Fried fish in clear soup",
+        "better-not": "Fried fish + evaporated milk in soup"
+      },
+      "reasons": {
+        "safer": "Pure protein and hydrating soup. Perfect if you’re feeling bloated or want a light meal.",
+        "sometimes": "You get the crunch and richness of fried batter, but the clear soup keeps it from feeling like a \"heavy\" meal.",
+        "better-not": "Saturated fat from the evaporated milk combined with the deep-fry oil from the fish batter. Common culprit for a massive energy crash."
+      },
+      "portionTip": "The Noodle Strategy: If you want to feel \"lighter,\" opt for Thick Bee Hoon or Rice. Thin Bee Hoon and Mee Sua act like sponges; they soak up significantly more sodium and oil from the broth compared to Thick Bee Hoon.\n\nThe \"Side\" Swap: Ask for extra Bitter Gourd or Silken Tofu. This adds volume and \"mouthfeel\" to the meal without the heaviness of double-fried fish.\n\nThe Egg Floss Trap: If the stall offers Fried Egg Floss (those golden crunchy bits), ask for it on the side or skip it. It's 90% oil and quickly turns a \"safe\" clear soup into a high-fat meal.\n\nThe 70% Rule: You don't need to finish the broth! Enjoy the fish and noodles, drink enough soup to feel satisfied, but leave the last bit in the bowl to avoid the heaviest concentration of salt.",
+      "sauceTip": "• Chili Padi + Soy Sauce\n  Dip, don't pour. Dipping your fish gives you the salt hit without making the whole soup a sodium bomb.\n\n• Minced Ginger\n  Recommended. Great for \"warming\" the body and aiding digestion, with zero added fats.\n\n• Fried Shallots/Garlic\n  A sprinkle is fine. They add great aroma, but they are deep-fried."
     },
     "yong-tau-foo": {
       "name": "Yong Tau Foo",
-      "tip": "Tofu and leafy greens are soft and easy to digest.",
       "options": {
-        "light": "Soup base with fresh tofu and greens",
-        "caution": "Dry style with sweet bean sauce",
-        "avoid": "Laksa broth or mostly crispy fried items"
-      }
+        "safer": "Soup base with fresh tofu and greens",
+        "sometimes": "Dry style with sweet bean sauce",
+        "better-not": "Laksa broth or mostly crispy fried items"
+      },
+      "reasons": {
+        "safer": "Soft tofu is easy to digest",
+        "sometimes": "Sweet sauce has more sugar",
+        "better-not": "Fried items are harder to process"
+      },
+      "portionTip": "Fill up with more tofu and vegetables",
+      "sauceTip": "👍 Clear soup — small\n⚠️ Sweet sauce — moderate\n🚫 Chill paste — can be spicy"
     },
     "ban-mian": {
       "name": "Ban Mian",
-      "tip": "Adding extra spinach makes the broth feel more balanced.",
       "options": {
-        "light": "Clear soup with extra vegetables",
-        "caution": "Dry style with minced meat",
-        "avoid": "Dry style with extra chilli oil and fried ikan bilis"
-      }
+        "safer": "Clear soup with extra vegetables",
+        "sometimes": "Dry style with minced meat",
+        "better-not": "Dry style with extra chilli oil and fried ikan bilis"
+      },
+      "reasons": {
+        "safer": "More fiber from vegetables",
+        "sometimes": "Minced meat is heavier",
+        "better-not": "Spicy and oily may irritate"
+      },
+      "portionTip": "Share noodles if portion looks large",
+      "sauceTip": "👍 Ketchup — small\n⚠️ Chilli oil — moderate\n🚫 Vinegar — high acidity"
     },
     "nasi-lemak": {
       "name": "Nasi Lemak",
-      "tip": "The cucumber and egg provide a nice contrast in texture.",
       "options": {
-        "light": "Plain rice with ikan bilis, egg, and cucumber",
-        "caution": "Coconut rice with otah and wings",
-        "avoid": "Coconut rice with extra sambal and fried sides"
-      }
+        "safer": "Plain rice with ikan bilis, egg, and cucumber",
+        "sometimes": "Coconut rice with otah and wings",
+        "better-not": "Coconut rice with extra sambal and fried sides"
+      },
+      "reasons": {
+        "safer": "Less saturated fat",
+        "sometimes": "Coconut milk is rich",
+        "better-not": "Fried sides and sambal are heavy"
+      },
+      "portionTip": "Skip the fried chicken, have more cucumber",
+      "sauceTip": "👍 Light sambal — small\n⚠️ Coconut milk — moderate\n🚫 Extra sambal — high sugar & oil"
     },
     "wanton-mee": {
       "name": "Wanton Mee",
-      "tip": "Soup on the side helps keep the noodles soft.",
       "options": {
-        "light": "Soup version with boiled wantons",
-        "caution": "Dry version with char siew",
-        "avoid": "Dry version with extra sauce and fried wantons"
-      }
+        "safer": "Soup version with boiled wantons",
+        "sometimes": "Dry version with char siew",
+        "better-not": "Dry version with extra sauce and fried wantons"
+      },
+      "reasons": {
+        "safer": "Soup keeps noodles soft",
+        "sometimes": "Char siew is fatty meat",
+        "better-not": "Extra sauce and oil are heavy"
+      },
+      "portionTip": "Ask for fewer noodles, more veggies",
+      "sauceTip": "👍 Soup — small\n⚠️ Chilli powder — moderate\n🚫 Extra sauce/oil — heavy"
     },
     "carrot-cake": {
       "name": "Carrot Cake",
-      "tip": "White carrot cake has a simpler, more savoury flavour profile.",
       "options": {
-        "light": "White version with more egg, less oil",
-        "caution": "White version",
-        "avoid": "Black version"
-      }
+        "safer": "White version with more egg, less oil",
+        "sometimes": "White version",
+        "better-not": "Black version"
+      },
+      "reasons": {
+        "safer": "Egg adds protein without much oil",
+        "sometimes": "Standard oil amount",
+        "better-not": "Sweet sauce adds more calories"
+      },
+      "portionTip": "Share between two, it's quite filling",
+      "sauceTip": "👍 White sauce — small\n⚠️ Sweet sauce — moderate\n🚫 Black sauce — high sugar"
     },
     "economical-rice": {
       "name": "Economical Rice",
-      "tip": "Steamed options are often easier on the palate.",
       "options": {
-        "light": "Two steamed vegetable sides + 1 steamed protein",
-        "caution": "One stir-fry + 1 fried protein",
-        "avoid": "Multiple fried sides or heavy gravy over rice"
-      }
+        "safer": "Two steamed vegetable sides + 1 steamed protein",
+        "sometimes": "One stir-fry + 1 fried protein",
+        "better-not": "Multiple fried sides or heavy gravy over rice"
+      },
+      "reasons": {
+        "safer": "Minimal oil, balanced nutrients",
+        "sometimes": "Some oil from stir-fry",
+        "better-not": "Heavy gravy and grease"
+      },
+      "portionTip": "Choose smaller rice portion, more veg",
+      "sauceTip": "👍 Light gravy — small\n⚠️ Oyster sauce — moderate\n🚫 Heavy curry/gravy — high oil"
     },
     "laksa": {
       "name": "Laksa",
-      "tip": "Sipping the broth slowly lets you enjoy the spices.",
       "options": {
-        "light": "Extra bean sprouts",
-        "caution": "Extra cockles/fishcake",
-        "avoid": "Extra soup or added fried toppings"
-      }
+        "safer": "Extra bean sprouts",
+        "sometimes": "Extra cockles/fishcake",
+        "better-not": "Extra soup or added fried toppings"
+      },
+      "reasons": {
+        "safer": "Crunchy, high water content",
+        "sometimes": "More toppings can be heavy",
+        "better-not": "Coconut gravy is very rich"
+      },
+      "portionTip": "Have half the noodles, more bean sprouts",
+      "sauceTip": "👍 Lime — small\n⚠️ Sambal — moderate\n🚫 Extra coconut milk — very rich"
     },
     "bak-chor-mee": {
       "name": "Bak Chor Mee",
-      "tip": "Vinegar adds a bright tang that cuts through the richness.",
       "options": {
-        "light": "Soup version with minced meat and mushrooms",
-        "caution": "Dry version with balanced sauce",
-        "avoid": "Dry version with extra lard/chilli/sauce"
-      }
+        "safer": "Soup version with minced meat and mushrooms",
+        "sometimes": "Dry version with balanced sauce",
+        "better-not": "Dry version with extra lard/chilli/sauce"
+      },
+      "reasons": {
+        "safer": "Soup is lighter and hydrating",
+        "sometimes": "Standard sauce is okay",
+        "better-not": "Too much lard and spice"
+      },
+      "portionTip": "Ask for less mee (noodles), add more mushrooms",
+      "sauceTip": "👍 Soup — small\n⚠️ Vinegar — moderate\n🚫 Chilli/lard — heavy"
     }
   },
   "pages": {

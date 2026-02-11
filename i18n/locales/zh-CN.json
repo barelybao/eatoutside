@@ -6,12 +6,14 @@
     "backToMenu": "← 回菜单",
     "about": "关于",
     "disclaimer": "免责声明",
-    "reassurance": "选择今天对你身体最合适的选项。",
+    "reassurance": "不同小贩，不同煮法。选择今天适合你身体的。",
     "options": {
-      "light": "清淡",
-      "caution": "适量",
-      "avoid": "避免"
+      "safer": "👍 安全",
+      "sometimes": "⚠️ 适量",
+      "better-not": "🚫 最好别"
     },
+    "portionTip": "分量提示",
+    "sauceTip": "酱料提示",
     "counter": {
       "peopleAte": "有 {count} 个人吃过这个",
       "beFirst": "成为第一个吃这个的人",
@@ -25,93 +27,153 @@
   "foods": {
     "chicken-rice": {
       "name": "鸡饭",
-      "tip": "黄瓜片为这顿饭增添清爽的口感。",
       "options": {
-        "light": "白切鸡（去皮）+ 白饭",
-        "caution": "白切鸡 + 油饭",
-        "avoid": "烧鸡 + 油饭"
-      }
+        "safer": "白切鸡（去皮）+ 白饭",
+        "sometimes": "白切鸡 + 油饭",
+        "better-not": "烧鸡 + 油饭"
+      },
+      "reasons": {
+        "safer": "少油，易消化",
+        "sometimes": "油饭较油腻",
+        "better-not": "烧鸡皮较难消化"
+      },
+      "portionTip": "如果不是很饿，先从半份开始",
+      "sauceTip": "👍 辣椒 — 少量\n⚠️ 薑蓉 — 适量\n🚫 黑酱油/甜酱 — 高糖高钠"
     },
     "fish-soup": {
       "name": "鱼汤",
-      "tip": "清汤补水，易于消化。",
       "options": {
-        "light": "清汤鱼片",
-        "caution": "清汤炸鱼",
-        "avoid": "奶汤炸鱼"
-      }
+        "safer": "清汤鱼片",
+        "sometimes": "清汤炸鱼",
+        "better-not": "奶汤炸鱼"
+      },
+      "reasons": {
+        "safer": "清汤补水舒缓",
+        "sometimes": "油炸食品消化较慢",
+        "better-not": "奶汤较腻"
+      },
+      "portionTip": "多加蔬菜代替鱼肉\n\n面条策略：如果想吃得「清淡」些，选择粗米粉或米饭。细米粉和面线像海绵一样，会比粗米粉吸收更多的汤里的钠和油。\n\n配菜交换：如果还饿，可以要求加苦瓜或嫩豆腐。这样可以增加分量和口感，而不会有双炸鱼那种油腻感。\n\n蛋酥陷阱：如果摊位提供炸蛋酥（那些金黄色脆脆的东西），要求放在一边或不要加。这90%都是油，很快就会把「安全」的清汤变成高脂肪餐点。\n\n70%规则：不需要把汤喝完！享受鱼肉和面条，喝足够的汤感到满足就好，把最后一点留在碗里，避免摄入最浓的盐分。",
+      "sauceTip": "酱料/配料：\n• 小辣椒 + 酱油\n  蘸着吃，不要倒进去。蘸鱼肉可以享受咸味而不会让整碗汤变成钠炸弹。\n\n• 薜蓉\n  推荐。很棒「暖身」和帮助消化，零脂肪。\n\n• 炸红葱头/蒜头\n  少撒一点可以。它们增加香气，但都是油炸的；不要「额外」多加一勺。"
     },
     "yong-tau-foo": {
       "name": "酿豆腐",
-      "tip": "豆腐和绿叶蔬菜柔软易消化。",
       "options": {
-        "light": "清汤配鲜豆腐和蔬菜",
-        "caution": "干捞配甜酱",
-        "avoid": "叻沙汤底或大部分油炸食品"
-      }
+        "safer": "清汤配鲜豆腐和蔬菜",
+        "sometimes": "干捞配甜酱",
+        "better-not": "叻沙汤底或大部分油炸食品"
+      },
+      "reasons": {
+        "safer": "软豆腐易消化",
+        "sometimes": "甜酱糖分较多",
+        "better-not": "油炸食品较难消化"
+      },
+      "portionTip": "多加豆腐和蔬菜",
+      "sauceTip": "👍 清汤 — 少量\n⚠️ 甜酱 — 适量\n🚫 辣椒酱 — 可能太辣"
     },
     "ban-mian": {
       "name": "板面",
-      "tip": "多加菠菜让汤头更均衡。",
       "options": {
-        "light": "清汤加蔬菜",
-        "caution": "干捞配肉碎",
-        "avoid": "干捞加辣油和炸江鱼仔"
-      }
+        "safer": "清汤加蔬菜",
+        "sometimes": "干捞配肉碎",
+        "better-not": "干捞加辣油和炸江鱼仔"
+      },
+      "reasons": {
+        "safer": "蔬菜纤维较多",
+        "sometimes": "肉碎较油腻",
+        "better-not": "辛辣油腻可能刺激"
+      },
+      "portionTip": "如果分量大就分着吃",
+      "sauceTip": "👍 番茄酱 — 少量\n⚠️ 辣油 — 适量\n🚫 醋 — 酸度较高"
     },
     "nasi-lemak": {
       "name": "椰浆饭",
-      "tip": "黄瓜和鸡蛋提供很好的口感对比。",
       "options": {
-        "light": "白饭配江鱼仔、鸡蛋和黄瓜",
-        "caution": "椰浆饭配乌达和鸡翅",
-        "avoid": "椰浆饭加参巴和油炸配菜"
-      }
+        "safer": "白饭配江鱼仔、鸡蛋和黄瓜",
+        "sometimes": "椰浆饭配乌达和鸡翅",
+        "better-not": "椰浆饭加参巴和油炸配菜"
+      },
+      "reasons": {
+        "safer": "饱和脂肪较少",
+        "sometimes": "椰浆较丰富",
+        "better-not": "油炸配菜和参巴很油腻"
+      },
+      "portionTip": "不要炸鸡，多吃黄瓜",
+      "sauceTip": "👍 清淡参巴 — 少量\n⚠️ 椰浆 — 适量\n🚫 额外参巴 — 高糖高油"
     },
     "wanton-mee": {
       "name": "云吞面",
-      "tip": "汤面能保持面条柔软。",
       "options": {
-        "light": "汤面配水煮云吞",
-        "caution": "干捞配叉烧",
-        "avoid": "干捞加酱和炸云吞"
-      }
+        "safer": "汤面配水煮云吞",
+        "sometimes": "干捞配叉烧",
+        "better-not": "干捞加酱和炸云吞"
+      },
+      "reasons": {
+        "safer": "汤保持面条柔软",
+        "sometimes": "叉烧是肥肉",
+        "better-not": "额外的酱和油很重"
+      },
+      "portionTip": "要求少面多菜",
+      "sauceTip": "👍 汤 — 少量\n⚠️ 辣椒粉 — 适量\n🚫 额外酱汁/油 — 油腻"
     },
     "carrot-cake": {
       "name": "萝卜糕",
-      "tip": "白萝卜糕口味更简单清淡。",
       "options": {
-        "light": "白萝卜糕多蛋少油",
-        "caution": "白萝卜糕",
-        "avoid": "黑萝卜糕"
-      }
+        "safer": "白萝卜糕多蛋少油",
+        "sometimes": "白萝卜糕",
+        "better-not": "黑萝卜糕"
+      },
+      "reasons": {
+        "safer": "蛋加蛋白质不多油",
+        "sometimes": "标准油量",
+        "better-not": "甜酱热量更高"
+      },
+      "portionTip": "两人分着吃，很饱",
+      "sauceTip": "👍 白酱 — 少量\n⚠️ 甜酱 — 适量\n🚫 黑酱 — 高糖"
     },
     "economical-rice": {
       "name": "杂菜饭",
-      "tip": "蒸的选项通常更容易接受。",
       "options": {
-        "light": "两份蒸蔬菜 + 一份蒸肉类",
-        "caution": "一份炒菜 + 一份煎炸肉类",
-        "avoid": "多份油炸配菜或浓汁淋饭"
-      }
+        "safer": "两份蒸蔬菜 + 一份蒸肉类",
+        "sometimes": "一份炒菜 + 一份煎炸肉类",
+        "better-not": "多份油炸配菜或浓汁淋饭"
+      },
+      "reasons": {
+        "safer": "少油，营养均衡",
+        "sometimes": "炒菜有些油",
+        "better-not": "浓汁和油脂"
+      },
+      "portionTip": "选择较小的饭量，多菜",
+      "sauceTip": "👍 清淡卤汁 — 少量\n⚠️ 蚝油 — 适量\n🚫 浓郁咖喱/卤汁 — 高油"
     },
     "laksa": {
       "name": "叻沙",
-      "tip": "慢慢品尝汤头能更好地享受香料。",
       "options": {
-        "light": "多加豆芽",
-        "caution": "多加蛤蜊/鱼饼",
-        "avoid": "多加汤或油炸配料"
-      }
+        "safer": "多加豆芽",
+        "sometimes": "多加蛤蜊/鱼饼",
+        "better-not": "多加汤或油炸配料"
+      },
+      "reasons": {
+        "safer": "爽脆，含水量高",
+        "sometimes": "更多配料可能较重",
+        "better-not": "椰浆汤底很丰富"
+      },
+      "portionTip": "吃半份面，多加豆芽",
+      "sauceTip": "👍 青柠 — 少量\n⚠️ 参巴 — 适量\n🚫 额外椰浆 — 非常丰富"
     },
     "bak-chor-mee": {
       "name": "肉脞面",
-      "tip": "醋能增添清爽的酸味，平衡油腻感。",
       "options": {
-        "light": "汤面配肉碎和蘑菇",
-        "caution": "干捞配适量酱料",
-        "avoid": "干捞加猪油/辣椒/多酱"
-      }
+        "safer": "汤面配肉碎和蘑菇",
+        "sometimes": "干捞配适量酱料",
+        "better-not": "干捞加猪油/辣椒/多酱"
+      },
+      "reasons": {
+        "safer": "汤较清淡补水",
+        "sometimes": "标准酱料可以",
+        "better-not": "太多猪油和辣椒"
+      },
+      "portionTip": "要求少面多菇",
+      "sauceTip": "👍 汤 — 少量\n⚠️ 醋 — 适量\n🚫 辣椒/猪油 — 油腻"
     }
   },
   "pages": {

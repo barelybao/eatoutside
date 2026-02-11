@@ -17,10 +17,12 @@ const description = computed(() => t(`foods.${props.slug}.options.${props.level}
 <template>
   <div :class="['option', level]">
     <div class="option-top">
-      <img :src="config.icon" :alt="`${optionLabel} option`" class="option-icon" />
-      <span class="option-label">{{ optionLabel }}:</span>
+      <span class="option-label">{{ optionLabel }}</span>
     </div>
-    <div class="option-content">{{ description }}</div>
+    <div class="option-content-line">
+      <span class="option-content">{{ description }}</span>
+    </div>
+    <div class="option-reason">{{ t(`foods.${slug}.reasons.${level}`) }}</div>
   </div>
 </template>
 
@@ -31,29 +33,62 @@ const description = computed(() => t(`foods.${props.slug}.options.${props.level}
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
-  background: var(--color-option-bg);
-  border-left: 5px solid var(--color-primary);
+}
+
+.option.safer {
+  background: rgb(8, 177, 60);
+  border: none;
+  color: rgb(226, 221, 112);
+}
+
+.option.sometimes {
+  background: rgb(96, 135, 212);
+  border: none;
+  color: #ce9dc1;
+}
+
+.option.better-not {
+  background: #763ab6;
+  border: none;
+  color: rgb(248, 217, 236);
 }
 
 .option-top {
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 2px;
 }
 
-.option-icon {
-  height: var(--option-icon-height);
-  width: auto;
-  margin-right: var(--spacing-xs);
-  flex-shrink: 0;
+.option-content-line {
+  margin-bottom: 4px;
 }
 
 .option-label {
-  font-weight: bold;
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
   flex-shrink: 0;
+  color: black;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.09em;
 }
 
 .option-content {
-  color: var(--color-text);
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-size: var(--font-size-base);
+  flex-shrink: 0;
+  flex: 1;
+}
+
+.option-reason {
+  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.04em; 
+  line-height: 1.3em;
+  margin-bottom: 8px;
 }
 </style>

@@ -74,19 +74,27 @@ const counterText = computed(() => {
       <p class="reassurance">{{ $t('ui.reassurance') }}</p>
 
       <OptionCard
-        level="light"
+        level="safer"
         :slug="food.slug"
       />
       <OptionCard
-        level="caution"
+        level="sometimes"
         :slug="food.slug"
       />
       <OptionCard
-        level="avoid"
+        level="better-not"
         :slug="food.slug"
       />
 
-      <p class="tip">{{ foodTip }}</p>
+      <div class="guidance">
+        <div class="guidance-title">🍽️ {{ $t('ui.portionTip') }}</div>
+        <div>{{ t(`foods.${food.slug}.portionTip`) }}</div>
+      </div>
+
+      <div class="guidance">
+        <div class="guidance-title">🥄 {{ $t('ui.sauceTip') }}</div>
+        <div>{{ t(`foods.${food.slug}.sauceTip`) }}</div>
+      </div>
 
       <div class="counter-section">
         <p class="counter-text">{{ counterText }}</p>
@@ -144,6 +152,17 @@ const counterText = computed(() => {
   margin-bottom: var(--spacing-lg);
   color: var(--color-text);
   text-align: left;
+}
+
+.guidance {
+  margin-top: var(--spacing-md);
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+.guidance-title {
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 
 .tip {

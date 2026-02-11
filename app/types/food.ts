@@ -1,4 +1,4 @@
-export type OptionLevel = 'light' | 'caution' | 'avoid';
+export type OptionLevel = 'safer' | 'sometimes' | 'better-not';
 
 export interface Food {
   id: string;

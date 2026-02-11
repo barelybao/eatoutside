@@ -17,16 +17,16 @@ export function useFood() {
   };
 
   const optionConfigs: Record<OptionLevel, OptionConfig> = {
-    light: {
-      level: 'light',
+    safer: {
+      level: 'safer',
       icon: '/img/ui/light.svg'
     },
-    caution: {
-      level: 'caution',
+    sometimes: {
+      level: 'sometimes',
       icon: '/img/ui/caution.svg'
     },
-    avoid: {
-      level: 'avoid',
+    'better-not': {
+      level: 'better-not',
       icon: '/img/ui/avoid.svg'
     }
   };
