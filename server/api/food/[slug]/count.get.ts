@@ -2,20 +2,17 @@ import { supabase } from '@/supabase'
 export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
 
-  // Get Singapore date range (start and end of day in SGT timezone)
-  // Commenting this out for now, as we may want to implement a different time range in the future
-  // const singaporeDate = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Singapore' })
-  // const startOfDay = new Date(`${singaporeDate}T00:00:00+08:00`).toISOString()
-  // const endOfDay = new Date(`${singaporeDate}T23:59:59+08:00`).toISOString()
+  // Validate slug format to prevent injection attacks
+  if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
+    throw createError({ statusCode: 400, message: 'Invalid slug format' })
+  }
 
   try {
-    // Query Supabase for count using timestamp range
+    // Query Supabase for count
     const { count, error } = await supabase
       .from('meal_records')
       .select('*', { count: 'exact', head: true })
-      .eq('meal_id', slug)  // Use slug directly
-      // .gte('created_at', startOfDay)
-      // .lt('created_at', endOfDay)
+      .eq('meal_id', slug)
 
     if (error) {
       console.error('Supabase error:', error)

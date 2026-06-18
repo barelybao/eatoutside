@@ -14,45 +14,38 @@ const foodName = computed(() => t(`foods.${props.food.slug}.name`));
 </script>
 
 <template>
-  <NuxtLink :to="localePath(`/food/${food.slug}`)" class="dish-btn">
-    <img :src="imagePath" :alt="foodName" />
-    <span class="dish-btn-text">{{ foodName }}</span>
+  <NuxtLink :to="localePath(`/food/${food.slug}`)" class="food-item">
+    <span class="bullet">●</span>
+    <span class="food-name">{{ foodName }}</span>
   </NuxtLink>
 </template>
 
 <style scoped>
-.dish-btn {
+.food-item {
   display: flex;
   align-items: center;
-  width: 100%;
-  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
-  margin-bottom: var(--spacing-sm);
-  background: var(--color-background-card);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-base);
-  text-align: left;
-  cursor: pointer;
-  color: var(--color-text);
-  font-weight: bold;
-  height: var(--dish-btn-height);
+  padding: 8px 16px;
   text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  gap: var(--spacing-md);
 }
 
-.dish-btn img {
-  height: var(--dish-btn-height);
-  width: auto;
-  object-fit: cover;
-  margin-right: var(--spacing-md);
-  border-radius: var(--radius-button) 0 0 var(--radius-button);
+.food-item:hover {
+  transform: translateX(8px);
+}
+
+.bullet {
+  color: var(--color-yellow);
+  font-size: 1.4rem;
   flex-shrink: 0;
+  line-height: 1;
 }
 
-.dish-btn-text {
+.food-name {
+  font-family: 'Lato', 'ZCOOL KuaiLe', sans-serif;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-weight: 400;
   flex: 1;
-}
-
-.dish-btn:hover {
-  background: var(--color-primary-light);
-  border-color: var(--color-primary);
 }
 </style>

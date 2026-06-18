@@ -12,83 +12,86 @@ const { optionConfigs } = useFood();
 const config = computed(() => optionConfigs[props.level]);
 const optionLabel = computed(() => t(`ui.options.${props.level}`));
 const description = computed(() => t(`foods.${props.slug}.options.${props.level}`));
+
+// Color mapping for each level - neon colors for titles and borders
+const colorMap = {
+  'safer': '#39FF14',
+  'sometimes': '#FFA500',
+  'better-not': '#FF4500'
+};
+
+const cardColor = computed(() => colorMap[props.level] || 'var(--color-text)');
 </script>
 
 <template>
-  <div :class="['option', level]">
-    <div class="option-top">
-      <span class="option-label">{{ optionLabel }}</span>
+  <div :class="['option-wrapper', level]" :style="{ '--neon-color': cardColor }">
+    <h3 class="option-label">
+      {{ optionLabel }}
+    </h3>
+    <div :class="['option-card', level]">
+      <div class="option-content">
+        <p class="option-description">{{ description }}</p>
+        <p class="option-reason">{{ t(`foods.${slug}.reasons.${level}`) }}</p>
+      </div>
     </div>
-    <div class="option-content-line">
-      <span class="option-content">{{ description }}</span>
-    </div>
-    <div class="option-reason">{{ t(`foods.${slug}.reasons.${level}`) }}</div>
   </div>
 </template>
 
 <style scoped>
-.option {
+.option-wrapper {
   margin-bottom: var(--spacing-md);
-  padding: var(--spacing-sm);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-}
-
-.option.safer {
-  background: rgb(8, 177, 60);
-  border: none;
-  color: rgb(226, 221, 112);
-}
-
-.option.sometimes {
-  background: rgb(96, 135, 212);
-  border: none;
-  color: #ce9dc1;
-}
-
-.option.better-not {
-  background: #763ab6;
-  border: none;
-  color: rgb(248, 217, 236);
-}
-
-.option-top {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.option-content-line {
-  margin-bottom: 4px;
 }
 
 .option-label {
-  font-family: "Funnel Display", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  flex-shrink: 0;
-  color: black;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 0.09em;
+  font-family: 'DynaPuff', 'ZCOOL KuaiLe', cursive;
+  font-size: 1.82rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: var(--neon-color);
+}
+
+.option-card {
+  background: var(--color-background-card);
+  border: 4px solid var(--neon-color);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.option-card.safer {
+  background: #122100;
+}
+
+.option-card.sometimes {
+  background: #2b1e00;
+}
+
+.option-card.better-not {
+  background: #280400;
 }
 
 .option-content {
-  font-family: "Funnel Display", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.option-description {
+  font-family: 'Lato', 'ZCOOL KuaiLe', sans-serif;
   font-size: var(--font-size-base);
-  flex-shrink: 0;
-  flex: 1;
+  color: var(--color-text);
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .option-reason {
-  font-size: 1rem;
-  color: white;
-  font-weight: 500;
-  letter-spacing: 0.04em; 
-  line-height: 1.3em;
-  margin-bottom: 8px;
+  font-family: 'Lato', 'ZCOOL KuaiLe', sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.3;
 }
 </style>

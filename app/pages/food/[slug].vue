@@ -3,7 +3,17 @@ const route = useRoute();
 const { t } = useI18n();
 const { getFoodBySlug } = useFood();
 
-const slug = computed(() => route.params.slug as string);
+const slug = computed(() => {
+  const param = route.params.slug;
+  if (typeof param !== 'string') {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Invalid slug parameter'
+    });
+  }
+  return param;
+});
+
 const food = computed(() => getFoodBySlug(slug.value));
 
 if (!food.value) {

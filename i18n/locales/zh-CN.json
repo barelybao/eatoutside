@@ -1,6 +1,6 @@
 {
   "ui": {
-    "siteTitle": "外出吃饭?",
+    "siteTitle": "外出吃饭",
     "siteDescription": "新加坡小贩美食指南 - 轻松做出更健康的选择",
     "subtitle": "吃什么?",
     "backToMenu": "← 回菜单",
@@ -21,7 +21,15 @@
       "loading": "加载中..."
     },
     "share": {
-      "text": "来看看这个：{name} - Eat Outside"
+      "text": "来看看这个：{name} - Eat Outside",
+      "copied": "页面链接已复制！现在分享给朋友们吧！"
+    },
+    "randomizer": {
+      "title": "唉！选一个还是我帮你选？",
+      "button": "你选啦"
+    },
+    "rankings": {
+      "title": "新加坡小贩美食排名"
     }
   },
   "foods": {
