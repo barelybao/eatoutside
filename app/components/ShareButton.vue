@@ -36,6 +36,7 @@ const handleShare = async () => {
       :disabled="isSharing"
       class="share-btn"
       :class="{ compact: compact }"
+      aria-label="Share this recipe"
     >
       <svg v-if="compact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="share-icon">
         <circle cx="18" cy="5" r="3"></circle>
@@ -56,8 +57,8 @@ const handleShare = async () => {
 
 .share-container.compact {
   position: absolute;
-  top: calc(var(--detail-image-height) - var(--spacing-lg) - var(--spacing-md) - 48px);
-  right: var(--spacing-md);
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
   margin-top: 0;
   z-index: 100;
 }
@@ -65,19 +66,21 @@ const handleShare = async () => {
 .share-btn {
   width: 100%;
   padding: var(--spacing-md);
-  background: var(--color-primary);
-  color: var(--color-text);
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-base);
-  font-weight: bold;
+  background: var(--color-white);
+  color: var(--color-black);
+  border: var(--border-thick);
+  border-radius: var(--radius-button);
+  font-family: 'Lato', 'ZCOOL KuaiLe', sans-serif;
+  font-size: var(--font-size-button);
+  font-weight: 700;
   cursor: pointer;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  transition: background 0.2s ease;
+  transition: all 0.1s ease;
+  box-shadow: var(--shadow-button);
 }
 
 .share-btn.compact {
@@ -85,11 +88,17 @@ const handleShare = async () => {
   height: 48px;
   padding: 0;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .share-btn:hover:not(:disabled) {
-  background: var(--color-primary-hover);
+  background: var(--color-yellow);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-hard);
+}
+
+.share-btn:active:not(:disabled) {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0px 0px #000000;
 }
 
 .share-btn:disabled {
@@ -100,5 +109,6 @@ const handleShare = async () => {
 .share-icon {
   width: 24px;
   height: 24px;
+  stroke: var(--color-black);
 }
 </style>

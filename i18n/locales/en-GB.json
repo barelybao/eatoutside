@@ -1,6 +1,6 @@
 {
   "ui": {
-    "siteTitle": "Eat Outside?",
+    "siteTitle": "EAT OUTSIDE",
     "siteDescription": "Singapore hawker food guide - make healthier choices with ease",
     "subtitle": "吃什么?",
     "backToMenu": "← Back to Menu",
@@ -21,7 +21,15 @@
       "loading": "Loading..."
     },
     "share": {
-      "text": "Check this out: {name} - Eat Outside"
+      "text": "Check this out: {name} - Eat Outside",
+      "copied": "Page is copied! Now share with your friends anywhere!"
+    },
+    "randomizer": {
+      "title": "Eh! Pick one or i choose for you today?",
+      "button": "You choose lor"
+    },
+    "rankings": {
+      "title": "SG Hawker Food Rankings"
     }
   },
   "foods": {
